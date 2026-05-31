@@ -8,328 +8,124 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
+<!-- CSS file -->
+<link rel="stylesheet" href="assets/css/style.css">
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:'Inter',sans-serif;
-    color:#222;
-    line-height:1.7;
-    background:#fff;
-}
-
-.container{
-    width:90%;
-    max-width:1100px;
-    margin:auto;
-}
-
-nav{
-    padding:25px 0;
-    border-bottom:1px solid #eee;
-}
-
-.nav-content{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:1.4rem;
-    font-weight:700;
-}
-
-.nav-links a{
-    text-decoration:none;
-    color:#444;
-    margin-left:25px;
-}
-
-.hero{
-    padding:90px 0;
-}
-
-.hero-grid{
-    display:grid;
-    grid-template-columns:300px 1fr;
-    gap:60px;
-    align-items:center;
-}
-
-.hero img{
-    width:100%;
-    border-radius:12px;
-}
-
-.hero h1{
-    font-size:3rem;
-    margin-bottom:10px;
-}
-
-.hero h2{
-    color:#666;
-    font-weight:400;
-    margin-bottom:25px;
-}
-
-.hero p{
-    max-width:700px;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:25px;
-    padding:12px 24px;
-    background:#111;
-    color:white;
-    text-decoration:none;
-    border-radius:6px;
-}
-
-section{
-    padding:70px 0;
-}
-
-h3{
-    font-size:2rem;
-    margin-bottom:25px;
-}
-
-.card-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-.card{
-    border:1px solid #eee;
-    padding:25px;
-    border-radius:10px;
-}
-
-.card h4{
-    margin-bottom:10px;
-}
-
-ul{
-    padding-left:20px;
-}
-
-footer{
-    border-top:1px solid #eee;
-    padding:40px 0;
-    text-align:center;
-    color:#666;
-}
-
-@media(max-width:768px){
-
-.hero-grid{
-    grid-template-columns:1fr;
-}
-
-.hero h1{
-    font-size:2.3rem;
-}
-
-}
-
-</style>
 </head>
 
 <body>
 
 <nav>
-<div class="container nav-content">
-<div class="logo">Araz Mehrabani</div>
+  <div class="container nav-content">
+    <div class="logo">Araz Mehrabani</div>
 
-<div class="nav-links">
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#research">Research</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
-<section class="hero-banner">
-<div class="container hero-grid">
+<section class="hero">
+  <div class="container hero-grid">
 
-<img src="hero.jpg" alt="Photo">
+    <img src="assets/profile.jpg" alt="Profile Photo">
 
-<div>
-<h1>Araz Mehrabani</h1>
+    <div>
+      <h1>Araz Mehrabani</h1>
 
-<h2>
-M.Sc. Wind Energy Engineering
-</h2>
+      <h2>M.Sc. Wind Energy Engineering</h2>
 
-<p>
-I am a Wind Energy Engineering graduate student with interests in
-aeroelastic simulations, offshore wind systems, turbine loads,
-wake interactions, and control strategies. My work focuses on
-numerical modeling and simulation using OpenFAST and related
-engineering tools.
-</p>
+      <p>
+        I am a Wind Energy Engineering student focusing on aeroelastic simulations,
+        offshore wind systems, turbine loads, wake effects, and control strategies.
+        I work mainly with OpenFAST and Python-based workflows.
+      </p>
 
-<a class="btn" href="CV.pdf" target="_blank">
-Download CV
-</a>
-</div>
+      <a class="btn" href="CV.pdf" target="_blank">Download CV</a>
+    </div>
 
-</div>
+  </div>
 </section>
 
 <section id="about">
-<div class="container">
-
-<h3>About</h3>
-
-<p>
-My academic and engineering interests are centered around
-wind turbine aerodynamics, structural dynamics,
-fatigue analysis, offshore wind energy, and wind farm control.
-I enjoy combining simulation tools, programming,
-and engineering analysis to solve practical problems in renewable energy systems.
-</p>
-
-</div>
+  <div class="container">
+    <h3>About</h3>
+    <p>
+      I am interested in wind turbine aerodynamics, structural dynamics,
+      offshore wind energy systems, and numerical simulation tools.
+      My goal is to bridge engineering modeling and real-world wind energy applications.
+    </p>
+  </div>
 </section>
 
 <section id="research">
-<div class="container">
-
-<h3>Research Interests</h3>
-
-<ul>
-<li>OpenFAST aeroelastic simulations</li>
-<li>Wind turbine load analysis</li>
-<li>Wake steering and wind farm control</li>
-<li>Offshore wind systems</li>
-<li>Floating wind turbines</li>
-<li>Fatigue and structural reliability</li>
-<li>Renewable energy system modeling</li>
-</ul>
-
-</div>
+  <div class="container">
+    <h3>Research Interests</h3>
+    <ul>
+      <li>OpenFAST simulations</li>
+      <li>Wind turbine loads & fatigue analysis</li>
+      <li>Wake steering & wind farm control</li>
+      <li>Offshore wind energy systems</li>
+      <li>Floating wind turbines</li>
+      <li>Computational modeling</li>
+    </ul>
+  </div>
 </section>
 
 <section id="projects">
-<div class="container">
+  <div class="container">
 
-<h3>Selected Projects</h3>
+    <h3>Projects</h3>
 
-<div class="card-grid">
+    <div class="card-grid">
 
-<div class="card">
-<h4>Wake Steering Analysis</h4>
-<p>
-Investigation of wake steering impacts on power production
-and fatigue loads using OpenFAST simulations.
-</p>
-</div>
+      <div class="card">
+        <h4>Wake Steering Analysis</h4>
+        <p>Study of wake steering impact on power and loads using OpenFAST.</p>
+      </div>
 
+      <div class="card">
+        <h4>OpenFAST Automation</h4>
+        <p>Python workflow for IEC DLC simulations and batch processing.</p>
+      </div>
 
+      <div class="card">
+        <h4>Floating Wind Turbine</h4>
+        <p>Analysis of platform motion and turbine response in offshore conditions.</p>
+      </div>
 
-</section>
+    </div>
 
-<section id="publications">
-
-<h3>Publications</h3>
-
-<ul>
-
-<li>
-Master Thesis (2026)
-</li>
-
-<li>
-Conference Presentation (future)
-</li>
-
-</ul>
-
-<a href="https://github.com/Araz-m/OpenFAST-Project">
-View Project →
-</a>
-
-<div class="card">
-<h4>IEC Design Load Cases</h4>
-<p>
-Automation of OpenFAST simulations for IEC load case studies
-using Python workflows.
-</p>
-</div>
-
-<div class="card">
-<h4>Floating Wind Turbine Modeling</h4>
-<p>
-Assessment of platform motion effects on turbine performance
-and structural response.
-</p>
-</div>
-
-</div>
-
-</div>
+  </div>
 </section>
 
 <section>
-<div class="container">
-
-<h3>Education</h3>
-
-<p>
-<b>M.Sc. Wind Energy Engineering</b><br>
-University in Germany<br>
-Expected Graduation: 2026
-</p>
-
-</div>
-</section>
-
-<section>
-<div class="container">
-
-<h3>Technical Skills</h3>
-
-<ul>
-<li>OpenFAST</li>
-<li>Python</li>
-<li>MATLAB</li>
-<li>Wind Energy Simulation</li>
-<li>Data Analysis</li>
-<li>Git & GitHub</li>
-<li>Linux</li>
-</ul>
-
-</div>
+  <div class="container">
+    <h3>Education</h3>
+    <p>
+      <b>M.Sc. Wind Energy Engineering</b><br>
+      Germany<br>
+      Expected 2026
+    </p>
+  </div>
 </section>
 
 <section id="contact">
-<div class="container">
-
-<h3>Contact</h3>
-
-<p>Email: araz.h.mehrabani@gmail.com</p>
-<p>GitHub: github.com/Araz-m</p>
-<p>LinkedIn: linkedin.com/in/araz-mehrabani</p>
-
-</div>
+  <div class="container">
+    <h3>Contact</h3>
+    <p>Email: your.email@gmail.com</p>
+    <p>GitHub: github.com/Araz-m</p>
+    <p>LinkedIn: linkedin.com/in/your-profile</p>
+  </div>
 </section>
 
 <footer>
-
-<p>
-© 2026 Araz Mehrabani
-</p>
-
+  <div class="container">
+    <p>© 2026 Araz Mehrabani</p>
+  </div>
 </footer>
 
 </body>

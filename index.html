@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Araz Hamayeli Mehrabani | Wind Energy Engineer</title>
-    <!-- Google Fonts + Tailwind CSS + Simple CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-        }
-        .bg-gradient-subtle {
-            background: linear-gradient(120deg, #f8fafc 0%, #eef2ff 100%);
         }
         .card-hover {
             transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -22,23 +18,37 @@
             transform: translateY(-4px);
             box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
         }
-        .text-balance {
-            text-wrap: balance;
+        .hero-bg {
+            background-image: url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            position: relative;
         }
-        .hero-pattern {
-            background-image: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 60%);
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.92) 100%);
+            z-index: 1;
         }
-        @media (max-width: 768px) {
-            .container {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-            }
+        .hero-bg > * {
+            position: relative;
+            z-index: 2;
+        }
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-    <!-- Navigation (minimal, like the original) -->
+    <!-- Navigation -->
     <nav class="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
         <div class="max-w-6xl mx-auto px-6 md:px-8 py-4 flex flex-wrap justify-between items-center gap-3">
             <div class="text-xl font-semibold tracking-tight text-sky-800">Araz Hamayeli Mehrabani</div>
@@ -52,25 +62,28 @@
         </div>
     </nav>
 
-    <main class="overflow-hidden">
-        <!-- Hero section – inspired by Brunner Lab layout -->
-        <section class="hero-pattern py-20 md:py-28">
+    <main>
+        <!-- Hero section with background image -->
+        <section class="hero-bg py-20 md:py-28">
             <div class="max-w-6xl mx-auto px-6 md:px-8">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <div class="inline-flex items-center gap-2 bg-sky-50 text-sky-700 text-xs font-medium px-3 py-1 rounded-full mb-6">Wind Energy · Mechanical Engineering</div>
                         <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 leading-tight">Master’s student in <span class="text-sky-600">Wind Energy Engineering</span></h1>
-                        <p class="text-lg text-gray-600 mt-6 max-w-xl leading-relaxed text-balance">Background in Mechanical Engineering with hands‑on experience in aeroelastic simulations, structural dynamics, and wind farm modelling. Skilled in OpenFAST, WindPro, Python, MATLAB, and ANSYS.</p>
+                        <p class="text-lg text-gray-600 mt-6 max-w-xl leading-relaxed">Background in Mechanical Engineering with hands‑on experience in aeroelastic simulations, structural dynamics, and wind farm modelling. Skilled in OpenFAST, WindPro, Python, MATLAB, and ANSYS.</p>
                         <div class="flex flex-wrap gap-4 mt-8">
                             <a href="#contact" class="bg-sky-600 hover:bg-sky-700 text-white font-medium px-6 py-2.5 rounded-full transition shadow-sm">Get in touch</a>
                             <a href="#experience" class="border border-gray-300 hover:border-sky-400 text-gray-700 hover:text-sky-600 font-medium px-6 py-2.5 rounded-full transition">View experience</a>
                         </div>
                     </div>
-                    <div class="relative">
+                    <div>
                         <div class="bg-gradient-to-br from-sky-50 to-indigo-50 rounded-3xl p-1 shadow-lg">
                             <div class="bg-white rounded-2xl p-6 shadow-sm">
                                 <div class="flex items-center gap-4 border-b border-gray-100 pb-4 mb-4">
-                                    <div class="h-14 w-14 rounded-full bg-sky-100 flex items-center justify-center text-sky-700 font-bold text-xl">A</div>
+                                    <!-- PROFILE IMAGE: Replace 'images/profile.jpg' with your actual image file -->
+                                    <div class="h-16 w-16 rounded-full bg-sky-100 overflow-hidden flex-shrink-0">
+                                        <img src="images/profile.jpg" alt="Araz Mehrabani" class="w-full h-full object-cover">
+                                    </div>
                                     <div>
                                         <h2 class="font-semibold text-gray-800">Araz Hamayeli Mehrabani</h2>
                                         <p class="text-sm text-gray-500">Wind Energy Engineer</p>
@@ -89,13 +102,13 @@
             </div>
         </section>
 
-        <!-- About / Research mission (two columns like original) -->
+        <!-- About section -->
         <section id="about" class="py-20 bg-white">
             <div class="max-w-6xl mx-auto px-6 md:px-8">
                 <div class="grid md:grid-cols-2 gap-12">
                     <div>
                         <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-4">My engineering journey</h2>
-                        <div class="prose prose-slate text-gray-600 space-y-4">
+                        <div class="text-gray-600 space-y-4">
                             <p>I am a Master’s student in Wind Energy Engineering at Hochschule Flensburg with a prior Master’s degree in Mechanical Engineering. My passion lies at the intersection of structural dynamics, aeroelastic simulations, and wind farm optimisation.</p>
                             <p>During my Master’s project, I performed aeroelastic load simulations for a 20 MW offshore monopile wind turbine using OpenFAST, Python, and MATLAB, including IEC 61400‑1 Design Load Cases. Beyond simulations, I developed Python automation to streamline OpenFAST workflows and cut manual post‑processing time.</p>
                             <p>I also bring professional experience from Paydar (solar mounting systems) and TehranRigzar (mining equipment), where I led structural analyses (ANSYS), technical documentation, and cross‑functional project coordination.</p>
@@ -104,11 +117,11 @@
                     <div class="bg-sky-50/40 rounded-2xl p-6 border border-sky-100">
                         <h3 class="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">⚡ Core research focus</h3>
                         <ul class="space-y-2 text-gray-700">
-                            <li class="flex gap-2">• Offshore wind turbine load analysis (IEC 61400‑1)</li>
-                            <li class="flex gap-2">• Python‑driven automation of aeroelastic workflows</li>
-                            <li class="flex gap-2">• Wind farm energy yield & project simulation (WindPro)</li>
-                            <li class="flex gap-2">• Structural dynamics & vibration analysis (ANSYS)</li>
-                            <li class="flex gap-2">• Bat curtailment / noise / shadow flicker planning</li>
+                            <li>• Offshore wind turbine load analysis (IEC 61400‑1)</li>
+                            <li>• Python‑driven automation of aeroelastic workflows</li>
+                            <li>• Wind farm energy yield & project simulation (WindPro)</li>
+                            <li>• Structural dynamics & vibration analysis (ANSYS)</li>
+                            <li>• Bat curtailment / noise / shadow flicker planning</li>
                         </ul>
                         <div class="mt-6 pt-6 border-t border-sky-100 text-sm text-gray-500">Open to internships, working student positions, or Master's thesis collaborations.</div>
                     </div>
@@ -116,7 +129,7 @@
             </div>
         </section>
 
-        <!-- Skills Section – compact cards (similar to publication cards) -->
+        <!-- Skills section -->
         <section id="skills" class="py-20 bg-gray-50">
             <div class="max-w-6xl mx-auto px-6 md:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-12">
@@ -134,7 +147,7 @@
             </div>
         </section>
 
-        <!-- Work Experience & Education combined layout (clean timeline) -->
+        <!-- Work Experience -->
         <section id="experience" class="py-20 bg-white">
             <div class="max-w-5xl mx-auto px-6 md:px-8">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-3">Work experience</h2>
@@ -145,6 +158,7 @@
             </div>
         </section>
 
+        <!-- Education -->
         <section id="education" class="py-20 bg-gray-50">
             <div class="max-w-5xl mx-auto px-6 md:px-8">
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-8">Education & certifications</h2>
@@ -157,14 +171,14 @@
             </div>
         </section>
 
-        <!-- Contact / footer (similar to original lab page) -->
+        <!-- Footer -->
         <footer id="contact" class="py-16 bg-slate-900 text-slate-200">
             <div class="max-w-6xl mx-auto px-6 md:px-8">
                 <div class="grid md:grid-cols-2 gap-10">
                     <div><h3 class="text-2xl font-semibold text-white mb-3">Let’s connect</h3><p class="text-slate-300 max-w-md">I am actively looking for opportunities in wind energy – load analysis, simulation, wind farm planning, or engineering coordination. Feel free to reach out.</p><div class="flex gap-4 mt-5"><a href="mailto:araz.h.mehrabani@gmail.com" class="bg-sky-500 hover:bg-sky-600 text-white px-5 py-2 rounded-full transition text-sm font-medium">Send email</a><a href="https://github.com/Araz-m" target="_blank" class="border border-slate-500 hover:border-sky-400 px-5 py-2 rounded-full transition text-sm">GitHub</a></div></div>
                     <div><h3 class="text-xl font-medium text-white mb-3">Contact info</h3><ul class="space-y-2 text-slate-300"><li>📧 araz.h.mehrabani@gmail.com</li><li>📞 +49 1575 436 3238</li><li>📍 Tinsdaler Weg 127, 22880 Wedel, Germany</li><li><span class="text-slate-300">🔗 <a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-sky-300">LinkedIn profile</a></span></li></ul></div>
                 </div>
-                <div class="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400 text-sm">© 2026 Araz Hamayeli Mehrabani – built with simplicity.</div>
+                <div class="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400 text-sm">© 2026 Araz Hamayeli Mehrabani – built with simplicity inspired by the Brunner Lab site.</div>
             </div>
         </footer>
     </main>

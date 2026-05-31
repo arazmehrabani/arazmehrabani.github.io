@@ -51,6 +51,32 @@
     html {
         scroll-padding-top: 80px;
     }
+    .cert-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cert-hover-img {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.cert-container:hover .cert-hover-img {
+    opacity: 1;
+    visibility: visible;
+}
 </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
@@ -142,66 +168,6 @@
     </div>
 </section>
 
-        <!-- Skills section -->
-        <!-- <section id="skills" class="py-20 bg-gray-50">
-            <div class="max-w-6xl mx-auto px-6 md:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-12">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900">Technical expertise</h2>
-                    <p class="text-gray-500 mt-3">Tools & technologies I use daily</p>
-                </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover"><div class="font-semibold text-sky-700 text-lg">🌬️ Wind Energy</div><div class="text-gray-600 mt-2 text-sm">OpenFAST, WindPro, QGIS, IEC 61400‑1 Load Cases, aeroelastic simulations, energy yield & curtailment</div></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover"><div class="font-semibold text-sky-700 text-lg">🐍 Programming & Data</div><div class="text-gray-600 mt-2 text-sm">Python (automation, data analysis), MATLAB, Power BI, GitHub workflows</div></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover"><div class="font-semibold text-sky-700 text-lg">🛠️ CAD & CAE</div><div class="text-gray-600 mt-2 text-sm">CATIA V5, SolidWorks, Siemens NX, ANSYS Workbench, ABAQUS</div></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover"><div class="font-semibold text-sky-700 text-lg">📊 Project Management</div><div class="text-gray-600 mt-2 text-sm">MS Project, SAP, technical documentation, cross‑functional coordination</div></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover"><div class="font-semibold text-sky-700 text-lg">🔬 Research</div><div class="text-gray-600 mt-2 text-sm">4 publications (control systems, underwater robotics) – MATLAB/Simulink</div></div>
-                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover"><div class="font-semibold text-sky-700 text-lg">🗣️ Languages</div><div class="text-gray-600 mt-2 text-sm">English (IELTS 7), German (B1, improving), Persian (native)</div></div>
-                </div>
-            </div>
-        </section> -->
-
-<!-- Skills section -->
-<!-- <section id="skills" class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6 md:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900">Technical expertise</h2>
-            <p class="text-gray-500 mt-3">Tools & technologies I use daily</p>
-            <div class="w-16 h-0.5 bg-sky-500 mx-auto mt-4"></div>
-        </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                <div class="text-3xl mb-2">🌬️</div>
-                <div class="font-semibold text-sky-700 text-lg">Wind Energy</div>
-                <div class="text-gray-600 mt-2 text-sm">OpenFAST, WindPro, QGIS, IEC 61400‑1 Load Cases, aeroelastic simulations, energy yield & curtailment</div>
-            </div>
-            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                <div class="text-3xl mb-2">🐍</div>
-                <div class="font-semibold text-sky-700 text-lg">Programming & Data</div>
-                <div class="text-gray-600 mt-2 text-sm">Python (automation, data analysis), MATLAB, Power BI, GitHub workflows</div>
-            </div>
-            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                <div class="text-3xl mb-2">🛠️</div>
-                <div class="font-semibold text-sky-700 text-lg">CAD & CAE</div>
-                <div class="text-gray-600 mt-2 text-sm">CATIA V5, SolidWorks, Siemens NX, ANSYS Workbench, ABAQUS</div>
-            </div>
-            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                <div class="text-3xl mb-2">📊</div>
-                <div class="font-semibold text-sky-700 text-lg">Project Management</div>
-                <div class="text-gray-600 mt-2 text-sm">MS Project, SAP, technical documentation, cross‑functional coordination</div>
-            </div>
-            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                <div class="text-3xl mb-2">🔬</div>
-                <div class="font-semibold text-sky-700 text-lg">Research</div>
-                <div class="text-gray-600 mt-2 text-sm">4 publications (control systems, underwater robotics) – MATLAB/Simulink</div>
-            </div>
-            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                <div class="text-3xl mb-2">🗣️</div>
-                <div class="font-semibold text-sky-700 text-lg">Languages</div>
-                <div class="text-gray-600 mt-2 text-sm">English (IELTS 7), German (B1, improving), Persian (native)</div>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Skills section -->
 <section id="skills" class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-6 md:px-8">

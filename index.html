@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+i feel that i have too much blue: <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +40,39 @@
             position: relative;
             z-index: 2;
         }
-
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        html {
+            scroll-padding-top: 80px;
+        }
+        .cert-container {
+            position: relative;
+            display: inline-block;
+        }
+        .cert-hover-img {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 10px;
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
+            z-index: 50;
+            pointer-events: none;
+        }
+        .cert-container:hover .cert-hover-img {
+            opacity: 1;
+            visibility: visible;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
@@ -74,16 +106,10 @@
                             <!-- Buttons removed as per your preference -->
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div>
-                        <div class="bg-gradient-to-br from-sky-50 to-indigo-50 rounded-3xl p-1 shadow-lg">
-                            <div class="bg-white rounded-2xl p-6 shadow-sm">
-=======
                     <!-- Right column - identity card -->
                     <div>
                         <div class="bg-gradient-to-br from-sky-50 to-indigo-50 rounded-3xl p-1 w-fit ml-auto">
                             <div class="bg-white rounded-2xl p-6 shadow w-full w-[420px] mx-auto md:mx-0 md:ml-auto">
->>>>>>> 027b493e8f252247259da450a92135b9282e07d8
                                 <div class="flex items-center gap-4 border-b border-gray-100 pb-4 mb-4">
                                     <div class="h-20 w-20 rounded-full bg-sky-100 overflow-hidden flex-shrink-0">
                                         <img src="images/profile.jpg" alt="Araz Mehrabani" class="w-full h-full object-cover object-[center_30%]">
@@ -132,20 +158,6 @@
                         <p>During my Master’s projects, I performed aeroelastic load simulations for a 20 MW offshore monopile wind turbine using OpenFAST, Python and MATLAB, including IEC 61400‑1 Design Load Cases. Beyond simulations, I developed Python automation to streamline OpenFAST workflows and cut manual post‑processing time.</p>
                         <p>I also bring professional experience from Paydar (solar energy systems) and TehranRigzar (mining equipment), where I led structural analyses (ANSYS), technical documentation, and cross‑functional project coordination. Earlier, I developed a control system for an underwater welding robot (MATLAB) and contributed as a volunteer engineer to an artificial hand prosthesis project.</p>
                     </div>
-<<<<<<< HEAD
-                    <div class="bg-sky-50/40 rounded-2xl p-6 border border-sky-100">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">⚡ Core research focus</h3>
-                        <ul class="space-y-2 text-gray-700">
-                            <li>• Offshore wind turbine load analysis (IEC 61400‑1)</li>
-                            <li>• Python‑driven automation of aeroelastic workflows</li>
-                            <li>• Wind farm energy yield & project simulation (WindPro)</li>
-                            <li>• Structural dynamics & vibration analysis (ANSYS)</li>
-                            <li>• Bat curtailment / noise / shadow flicker planning</li>
-                        </ul>
-                        <div class="mt-6 pt-6 border-t border-sky-100 text-sm text-gray-500">Open to internships, working student positions, or Master's thesis collaborations.</div>
-                    </div>
-=======
->>>>>>> 027b493e8f252247259da450a92135b9282e07d8
                 </div>
             </div>
         </section>
@@ -300,8 +312,8 @@
                             
                             <!-- CATIA Certification -->
                             <div class="cert-container relative inline-block">
-                                <a href="https://github.com/Araz-m/araz-m.github.io/tree/main/certificates" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">
-                                    CATIA V5 – AmirKabir University
+                                <a href="certificates/catia-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">
+                                    CATIA V5 – AmirKabir Univ.
                                 </a>
                                 <img src="images/cert-thumb-catia.jpg" alt="CATIA Certificate Preview" class="cert-hover-img">
                             </div>
@@ -372,11 +384,7 @@
                         <p class="text-slate-300 max-w-md">I am actively looking for opportunities in wind energy – load analysis, simulation, wind farm planning, or engineering coordination. Feel free to reach out.</p>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div class="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400 text-sm">© 2026 Araz Hamayeli Mehrabani – built with simplicity inspired by the Brunner Lab site.</div>
-=======
                 <div class="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400 text-sm">© 2026 Araz Hamayeli Mehrabani – Built by me, for you to explore.</div>
->>>>>>> 027b493e8f252247259da450a92135b9282e07d8
             </div>
         </footer>
     </main>
@@ -385,3 +393,4 @@
     </a>
 </body>
 </html>
+is it normal?

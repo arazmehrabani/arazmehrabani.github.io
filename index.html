@@ -73,7 +73,6 @@
             opacity: 1;
             visibility: visible;
         }
-        /* Lightbox arrow styles */
         .gallery-arrow {
             position: absolute;
             top: 50%;
@@ -97,7 +96,6 @@
         .gallery-arrow.next {
             right: 1rem;
         }
-        /* Active navigation link style */
         .nav-link.active {
             color: #0ea5e9;
             font-weight: 600;
@@ -123,7 +121,7 @@
     </nav>
 
     <main>
-        <!-- Hero section - reduced padding -->
+        <!-- Hero section -->
         <section class="hero-bg py-12 md:py-20">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="grid md:grid-cols-2 gap-12">
@@ -165,7 +163,7 @@
             </div>
         </section>
 
-        <!-- About section - reduced padding -->
+        <!-- About section -->
         <section id="about" class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -179,7 +177,7 @@
             </div>
         </section>
 
-        <!-- Skills section - reduced padding -->
+        <!-- Skills section -->
         <section id="skills" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -248,7 +246,7 @@
             </div>
         </section>
         
-        <!-- Work Experience - reduced padding -->
+        <!-- Work Experience -->
         <section id="experience" class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -280,7 +278,7 @@
             </div>
         </section>
 
-        <!-- Education - reduced padding -->
+        <!-- Education -->
         <section id="education" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -315,7 +313,7 @@
             </div>
         </section>
 
-        <!-- Projects Section - reduced padding -->
+        <!-- Projects Section -->
         <section id="projects" class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -407,7 +405,7 @@
             </div>
         </section>
 
-        <!-- Research Section - reduced padding -->
+        <!-- Research Section -->
         <section id="research" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -442,8 +440,8 @@
             </div>
         </section>
 
-        <!-- Footer - already compact -->
-        <footer id="contact" class="py-8 md:py-10 bg-slate-900 text-slate-200">
+        <!-- Footer - now a <section> so it is detected by active link script -->
+        <section id="contact" class="py-8 md:py-10 bg-slate-900 text-slate-200">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="grid md:grid-cols-2 gap-10">
                     <div class="md:-ml-8">
@@ -465,13 +463,13 @@
                 </div>
                 <div class="border-t border-slate-700 mt-6 pt-4 text-center text-slate-400 text-sm">© 2026 Araz Hamayeli Mehrabani – Built by me, for you to explore.</div>
             </div>
-        </footer>
+        </section>
     </main>
     <a href="#" class="fixed bottom-6 right-6 bg-sky-600 text-white p-3 rounded-full shadow-lg hover:bg-sky-700 transition opacity-70 hover:opacity-100">
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Enhanced lightbox with previous/next arrows (unchanged) -->
+    <!-- Enhanced lightbox -->
     <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center">
         <span class="gallery-arrow prev" onclick="navigateGallery(-1); event.stopPropagation();">&#10094;</span>
         <img id="lightbox-img" class="max-w-[80%] max-h-[80%] object-contain" onclick="event.stopPropagation();">
@@ -486,15 +484,22 @@
 
         function updateActiveLink() {
             let current = '';
-            const scrollPosition = window.scrollY + 100; // offset for sticky header
+            const scrollPosition = window.scrollY + 100;
+            const scrollHeight = document.documentElement.scrollHeight;
+            const windowHeight = window.innerHeight;
+            const isAtBottom = window.scrollY + windowHeight >= scrollHeight - 50;
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                    current = section.getAttribute('id');
-                }
-            });
+            if (isAtBottom) {
+                current = 'contact';
+            } else {
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        current = section.getAttribute('id');
+                    }
+                });
+            }
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
@@ -508,7 +513,7 @@
         window.addEventListener('scroll', updateActiveLink);
         window.addEventListener('load', updateActiveLink);
 
-        // Gallery lightbox code
+        // Gallery lightbox code (unchanged)
         let galleries = {};
         let currentGalleryId = null;
         let currentIndex = 0;

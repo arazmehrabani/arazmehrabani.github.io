@@ -316,73 +316,101 @@
             </div>
         </section>
 
-        <!-- Projects Section (same as your latest, but images now use data-gallery-id for advanced lightbox) -->
-        <section id="projects" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-6 md:px-8">
-                <div class="md:-ml-8">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Selected projects</h2>
-                    <p class="text-gray-500 mb-6">Engineering simulations, automation, and analysis</p>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        
-                        <!-- Project 1: 20 MW Offshore Monopile Load Analysis (gallery id = proj1) -->
-                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fas fa-wind text-2xl text-sky-600"></i>
-                                <h3 class="text-lg font-semibold text-gray-800">20 MW Offshore Monopile Load Analysis</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm mt-1">Aeroelastic load simulations for a 20 MW offshore wind turbine using OpenFAST, Python, and MATLAB. Implemented IEC 61400‑1 Design Load Cases (normal, extreme, fault, parked, seismic). Post‑processed structural loads and dynamic behaviour.</p>
-                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj1">
-                                <img src="images/project1/loads_plot1.jpg" alt="Load result" title="Load result & Tip Clearance" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/loads_plot1.jpg">
-                                <img src="images/project1/turbine_model.jpg" alt="OpenFAST model" title="OpenFAST turbine model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/turbine_model.jpg">
-                                <img src="images/project1/ieccases.jpg" alt="IEC load cases" title="IEC load cases" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/ieccases.jpg">
-                                <img src="images/project1/result_chart.png" alt="Response data" title="Response data" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/result_chart.png">
-                            </div>
-                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">IEC 61400-1</span></div>
-                        </div>
-
-                        <!-- Project 2: OpenFAST Automation Framework (no gallery needed) -->
-                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fas fa-robot text-2xl text-sky-600"></i>
-                                <a href="https://github.com/Araz-m/OpenFAST-DLC-Runner.py" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-gray-800 hover:text-sky-600 transition">OpenFAST Automation Framework</a>
-                            </div>
-                            <p class="text-gray-600 text-sm mt-1">Developed Python scripts to automate OpenFAST simulation workflows: batch job execution, parameter sweeps, and automated post‑processing of load time‑series data. Reduced manual processing time significantly.</p>
-                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Automation</span></div>
-                        </div>
-
-                        <!-- Project 3: WindPro Yield Assessment (gallery id = proj3) -->
-                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fas fa-chart-line text-2xl text-sky-600"></i>
-                                <h3 class="text-lg font-semibold text-gray-800">WindPro Yield Assessment</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm mt-1">Performed wind farm energy yield simulations, noise calculation, shadow flicker analysis, and bat curtailment strategies using WindPro. Assessed site suitability and energy production estimates.</p>
-                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj3">
-                                <img src="images/project3/noise_contour.jpg" alt="Noise contour" title="Noise calculation – sound contour lines" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/noise_contour.jpg">
-                                <img src="images/project3/shadow_flicker.jpg" alt="Shadow flicker" title="Shadow flicker analysis – affected areas" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/shadow_flicker.jpg">
-                                <img src="images/project3/QGIS_planning.jpg" alt="QGIS planning" title="QGIS planning – Wind and Site Assessment" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/QGIS_planning.jpg">
-                            </div>
-                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">WindPro</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">QGIS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Curtailment</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Noise/Shadow</span></div>
-                        </div>
-
-                        <!-- Project 4: Underwater Robot Controller (gallery id = proj4) -->
-                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fas fa-microscope text-2xl text-sky-600"></i>
-                                <h3 class="text-lg font-semibold text-gray-800">Underwater Robot Controller</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm mt-1">Developed a control system for an autonomous underwater welding robot using MATLAB/Simulink. Resulted in 4 peer‑reviewed publications.</p>
-                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj4">
-                                <img src="images/project4/robot_simulink_model.jpg" alt="Simulink model" title="MATLAB/Simulink control system model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_simulink_model.jpg">
-                                <img src="images/project4/robot_prototype.png" alt="Robot prototype" title="Prototype of the autonomous underwater welding robot" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_prototype.png">
-                            </div>
-                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Simulink</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Control Systems</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Robotics</span></div>
-                        </div>
+        <!-- Projects Section (with two new cards added) -->
+<section id="projects" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
+        <div class="md:-ml-8">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Selected projects</h2>
+            <p class="text-gray-500 mb-6">Engineering simulations, automation, and analysis</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                
+                <!-- Project 1: 20 MW Offshore Monopile Load Analysis (existing) -->
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-wind text-2xl text-sky-600"></i>
+                        <h3 class="text-lg font-semibold text-gray-800">20 MW Offshore Monopile Load Analysis</h3>
                     </div>
+                    <p class="text-gray-600 text-sm mt-1">Aeroelastic load simulations for a 20 MW offshore wind turbine using OpenFAST, Python, and MATLAB. Implemented IEC 61400‑1 Design Load Cases (normal, extreme, fault, parked, seismic). Post‑processed structural loads and dynamic behaviour.</p>
+                    <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj1">
+                        <img src="images/project1/loads_plot1.jpg" alt="Load result" title="Load result & Tip Clearance" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/loads_plot1.jpg">
+                        <img src="images/project1/turbine_model.jpg" alt="OpenFAST model" title="OpenFAST turbine model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/turbine_model.jpg">
+                        <img src="images/project1/ieccases.jpg" alt="IEC load cases" title="IEC load cases" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/ieccases.jpg">
+                        <img src="images/project1/result_chart.png" alt="Response data" title="Response data" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/result_chart.png">
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">IEC 61400-1</span></div>
                 </div>
-            </div>
-        </section>
 
+                <!-- Project 2: OpenFAST Automation Framework (existing) -->
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-robot text-2xl text-sky-600"></i>
+                        <a href="https://github.com/Araz-m/OpenFAST-DLC-Runner.py" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-gray-800 hover:text-sky-600 transition">OpenFAST Automation Framework</a>
+                    </div>
+                    <p class="text-gray-600 text-sm mt-1">Developed Python scripts to automate OpenFAST simulation workflows: batch job execution, parameter sweeps, and automated post‑processing of load time‑series data. Reduced manual processing time significantly.</p>
+                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Automation</span></div>
+                </div>
+
+                <!-- Project 3: WindPro Yield Assessment (existing) -->
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-chart-line text-2xl text-sky-600"></i>
+                        <h3 class="text-lg font-semibold text-gray-800">WindPro Yield Assessment</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mt-1">Performed wind farm energy yield simulations, noise calculation, shadow flicker analysis, and bat curtailment strategies using WindPro. Assessed site suitability and energy production estimates.</p>
+                    <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj3">
+                        <img src="images/project3/noise_contour.jpg" alt="Noise contour" title="Noise calculation – sound contour lines" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/noise_contour.jpg">
+                        <img src="images/project3/shadow_flicker.jpg" alt="Shadow flicker" title="Shadow flicker analysis – affected areas" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/shadow_flicker.jpg">
+                        <img src="images/project3/QGIS_planning.jpg" alt="QGIS planning" title="QGIS planning – Wind and Site Assessment" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/QGIS_planning.jpg">
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">WindPro</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">QGIS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Curtailment</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Noise/Shadow</span></div>
+                </div>
+
+                <!-- Project 4: Underwater Robot Controller (existing) -->
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-microscope text-2xl text-sky-600"></i>
+                        <h3 class="text-lg font-semibold text-gray-800">Underwater Robot Controller</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mt-1">Developed a control system for an autonomous underwater welding robot using MATLAB/Simulink. Resulted in 4 peer‑reviewed publications.</p>
+                    <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj4">
+                        <img src="images/project4/robot_simulink_model.jpg" alt="Simulink model" title="MATLAB/Simulink control system model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_simulink_model.jpg">
+                        <img src="images/project4/robot_prototype.png" alt="Robot prototype" title="Prototype of the autonomous underwater welding robot" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_prototype.png">
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Simulink</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Control Systems</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Robotics</span></div>
+                </div>
+
+                <!-- NEW PROJECT 5: Mechanical Engineering - Structural Optimization of Solar Mounting Systems -->
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-solar-panel text-2xl text-sky-600"></i>
+                        <h3 class="text-lg font-semibold text-gray-800">Mechanical Engineering</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mt-1">Designed and optimized solar mounting systems using SolidWorks and ANSYS. Performed structural analyses to reduce scrap rate by 10% and improve reliability. Developed technical documentation and SAP-based engineering data management.</p>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <img src="images/project5/solar_mounting_thumbnail.jpg" alt="Solar mounting design" title="3D model of solar mounting system" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/solar_mounting_design.jpg">
+                        <img src="images/project5/ansys_simulation.jpg" alt="ANSYS simulation" title="Structural analysis result" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/ansys_simulation.jpg">
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">SolidWorks</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">ANSYS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">SAP</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Structural Optimization</span></div>
+                </div>
+
+                <!-- NEW PROJECT 6: Volunteering - Artificial Hand Prosthesis -->
+                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-hand-holding-heart text-2xl text-sky-600"></i>
+                        <h3 class="text-lg font-semibold text-gray-800">Artificial Hand Prosthesis (Volunteer)</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm mt-1">Volunteer engineer contributing to the mechanical design and development of a low‑cost prosthetic hand. Involved in concept design, material selection, and prototyping to improve accessibility for amputees.</p>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <img src="images/project6/prosthesis_cad.jpg" alt="Prosthesis CAD model" title="3D design of prosthetic hand" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project6/prosthesis_cad.jpg">
+                        <img src="images/project6/prototype_photo.jpg" alt="Prototype photo" title="Physical prototype of the prosthetic hand" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project6/prototype_photo.jpg">
+                    </div>
+                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">Mechanical Design</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">CAD</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Prototyping</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Volunteering</span></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
         <!-- Research Section -->
         <section id="research" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-6 md:px-8">

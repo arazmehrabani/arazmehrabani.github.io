@@ -104,11 +104,11 @@
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-    <!-- Navigation -->
+    <!-- Navigation (mobile-friendly) -->
     <nav class="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
-        <div class="max-w-7xl mx-auto px-6 md:px-8 py-4 flex flex-wrap justify-between items-center gap-3">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap justify-between items-center gap-3">
             <div class="text-xl font-semibold tracking-tight text-sky-800 md:-ml-8">Araz Hamayeli Mehrabani</div>
-            <div class="flex gap-6 text-sm font-medium text-gray-600">
+            <div class="flex flex-wrap justify-center gap-3 md:gap-6 text-sm font-medium text-gray-600">
                 <a href="#about" class="nav-link hover:text-sky-600 transition">About</a>
                 <a href="#skills" class="nav-link hover:text-sky-600 transition">Skills</a>
                 <a href="#experience" class="nav-link hover:text-sky-600 transition">Experience</a>
@@ -121,8 +121,8 @@
     </nav>
 
     <main>
-        <!-- Hero section (unchanged) -->
-        <section class="hero-bg py-12 md:py-20">
+        <!-- Hero section -->
+        <section class="hero-bg py-12 md:py-20 overflow-x-hidden">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="grid md:grid-cols-2 gap-12">
                     <div class="md:-ml-8 -mt-6 md:-mt-12">
@@ -137,26 +137,27 @@
                             </a>
                         </div>
                     </div>
+                    <!-- Identity card (responsive width + hover effect) -->
                     <div class="-mt-6 md:-mt-12">
-    <div class="bg-white rounded-2xl p-6 shadow w-[460px] mx-auto md:mx-0 md:ml-auto transition-all duration-300 hover:bg-white/50">
-        <div class="flex items-center gap-4 border-b border-gray-100 pb-4 mb-4">
-            <div class="h-20 w-20 rounded-full bg-sky-100 overflow-hidden flex-shrink-0">
-                <img src="images/profile.jpg" alt="Araz Mehrabani" class="w-full h-full object-cover object-[center_30%]">
-            </div>
-            <div>
-                <h2 class="font-semibold text-gray-800">Araz Hamayeli Mehrabani</h2>
-                <p class="text-sm text-gray-500">M.Sc. Wind Energy Engineering (ongoing)</p>
-                <p class="text-xs text-gray-400">M.Sc. Mechanical Engineering (completed)</p>
-            </div>
-        </div>
-        <div class="space-y-3 text-sm">
-            <div class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-sky-500 w-4"></i><span>Wedel, Schleswig-Holstein, Germany</span></div>
-            <div class="flex items-center gap-3"><i class="fas fa-envelope text-sky-500 w-4"></i><a href="mailto:araz.h.mehrabani@gmail.com" class="hover:text-sky-600">araz.h.mehrabani@gmail.com</a></div>
-            <div class="flex items-center gap-3"><i class="fas fa-phone-alt text-sky-500 w-4"></i><span>+49 1575 436 3238</span></div>
-            <div class="flex items-center gap-3"><i class="fas fa-link text-sky-500 w-4"></i><div class="flex flex-wrap gap-3"><a href="https://github.com/Araz-m" target="_blank" class="hover:text-sky-600">GitHub</a><a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-sky-600">LinkedIn</a></div></div>
-        </div>
-    </div>
-</div>
+                        <div class="bg-white rounded-2xl p-6 shadow w-full max-w-[460px] mx-auto md:mx-0 md:ml-auto transition-all duration-300 hover:bg-white/50">
+                            <div class="flex items-center gap-4 border-b border-gray-100 pb-4 mb-4">
+                                <div class="h-20 w-20 rounded-full bg-sky-100 overflow-hidden flex-shrink-0">
+                                    <img src="images/profile.jpg" alt="Araz Mehrabani" class="w-full h-full object-cover object-[center_30%]">
+                                </div>
+                                <div>
+                                    <h2 class="font-semibold text-gray-800">Araz Hamayeli Mehrabani</h2>
+                                    <p class="text-sm text-gray-500">M.Sc. Wind Energy Engineering (ongoing)</p>
+                                    <p class="text-xs text-gray-400">M.Sc. Mechanical Engineering (completed)</p>
+                                </div>
+                            </div>
+                            <div class="space-y-3 text-sm">
+                                <div class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-sky-500 w-4"></i><span>Wedel, Schleswig-Holstein, Germany</span></div>
+                                <div class="flex items-center gap-3"><i class="fas fa-envelope text-sky-500 w-4"></i><a href="mailto:araz.h.mehrabani@gmail.com" class="hover:text-sky-600">araz.h.mehrabani@gmail.com</a></div>
+                                <div class="flex items-center gap-3"><i class="fas fa-phone-alt text-sky-500 w-4"></i><span>+49 1575 436 3238</span></div>
+                                <div class="flex items-center gap-3"><i class="fas fa-link text-sky-500 w-4"></i><div class="flex flex-wrap gap-3"><a href="https://github.com/Araz-m" target="_blank" class="hover:text-sky-600">GitHub</a><a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-sky-600">LinkedIn</a></div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -175,7 +176,7 @@
             </div>
         </section>
 
-        <!-- Skills section (unchanged) -->
+        <!-- Skills section -->
         <section id="skills" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -183,7 +184,7 @@
                     <p class="text-gray-500 mb-4">Tools & technologies I use daily</p>
                 </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- (skills cards unchanged) -->
+                    <!-- Wind Energy -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-wind text-3xl text-sky-600 mb-2"></i>
                         <div class="font-semibold text-sky-700 text-lg">Wind Energy</div>
@@ -194,6 +195,7 @@
                             <div><span class="font-medium text-sky-600">Analysis:</span> aeroelastic simulations, energy yield, curtailment</div>
                         </div>
                     </div>
+                    <!-- Programming & Data -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-code text-3xl text-sky-600 mb-2"></i>
                         <div class="font-semibold text-sky-700 text-lg">Programming & Data</div>
@@ -203,6 +205,7 @@
                             <div><span class="font-medium text-sky-600">Tools:</span> GitHub, VS Code, mini conda</div>
                         </div>
                     </div>
+                    <!-- CAD & CAE -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-drafting-compass text-3xl text-sky-600 mb-2"></i>
                         <div class="font-semibold text-sky-700 text-lg">CAD & CAE</div>
@@ -211,6 +214,7 @@
                             <div><span class="font-medium text-sky-600">CAE/FEA:</span> ANSYS Workbench, ABAQUS</div>
                         </div>
                     </div>
+                    <!-- Project Management -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-tasks text-3xl text-sky-600 mb-2"></i>
                         <div class="font-semibold text-sky-700 text-lg">Project Management</div>
@@ -219,6 +223,7 @@
                             <div><span class="font-medium text-sky-600">Skills:</span> technical documentation, cross‑functional coordination</div>
                         </div>
                     </div>
+                    <!-- Research -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-microscope text-3xl text-sky-600 mb-2"></i>
                         <div class="font-semibold text-sky-700 text-lg">Research</div>
@@ -227,6 +232,7 @@
                             <div><span class="font-medium text-sky-600">Tools:</span> MATLAB/Simulink</div>
                         </div>
                     </div>
+                    <!-- Languages -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-language text-3xl text-sky-600 mb-2"></i>
                         <div class="font-semibold text-sky-700 text-lg">Languages</div>
@@ -238,8 +244,8 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Work Experience (unchanged) -->
+
+        <!-- Work Experience -->
         <section id="experience" class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -271,7 +277,7 @@
             </div>
         </section>
 
-        <!-- Education (unchanged) -->
+        <!-- Education -->
         <section id="education" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -306,14 +312,14 @@
             </div>
         </section>
 
-        <!-- Projects Section - NOW WITH BULLET POINTS -->
+        <!-- Projects Section (bullet points) -->
         <section id="projects" class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
                     <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Selected projects</h2>
                     <p class="text-gray-500 mb-5">Engineering simulations, automation and analysis</p>
                     <div class="grid md:grid-cols-2 gap-6">
-                        <!-- Project 1: 20 MW Offshore Monopile Load Analysis -->
+                        <!-- Project 1 -->
                         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
                             <div class="flex items-center gap-2 mb-2">
                                 <i class="fas fa-wind text-2xl text-sky-600"></i>
@@ -332,8 +338,7 @@
                             </div>
                             <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">IEC 61400-1</span></div>
                         </div>
-
-                        <!-- Project 2: OpenFAST Automation Framework (bullet points as requested) -->
+                        <!-- Project 2 -->
                         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
                             <div class="flex items-center gap-2 mb-2">
                                 <i class="fas fa-robot text-2xl text-sky-600"></i>
@@ -346,8 +351,7 @@
                             </ul>
                             <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Automation</span></div>
                         </div>
-
-                        <!-- Project 3: WindPro Yield Assessment -->
+                        <!-- Project 3 -->
                         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
                             <div class="flex items-center gap-2 mb-2">
                                 <i class="fas fa-chart-line text-2xl text-sky-600"></i>
@@ -365,8 +369,7 @@
                             </div>
                             <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">WindPro</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">QGIS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Curtailment</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Noise/Shadow</span></div>
                         </div>
-
-                        <!-- Project 4: Underwater Robot Controller -->
+                        <!-- Project 4 -->
                         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
                             <div class="flex items-center gap-2 mb-2">
                                 <i class="fas fa-microscope text-2xl text-sky-600"></i>
@@ -382,8 +385,7 @@
                             </div>
                             <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Simulink</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Control Systems</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Robotics</span></div>
                         </div>
-
-                        <!-- Project 5: Large Mining Equipment Design (TehranRigzar) -->
+                        <!-- Project 5 -->
                         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
                             <div class="flex items-center gap-2 mb-2">
                                 <i class="fas fa-hard-hat text-2xl text-sky-600"></i>
@@ -402,8 +404,7 @@
                             </div>
                             <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">CATIA V5</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">ANSYS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Structural Analysis</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Project Coordination</span></div>
                         </div>
-
-                        <!-- Project 6: Volunteering - Artificial Hand Prosthesis -->
+                        <!-- Project 6 -->
                         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
                             <div class="flex items-center gap-2 mb-2">
                                 <i class="fas fa-hand-holding-heart text-2xl text-sky-600"></i>
@@ -426,7 +427,7 @@
             </div>
         </section>
 
-        <!-- Research Section (unchanged) -->
+        <!-- Research Section -->
         <section id="research" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -461,7 +462,7 @@
             </div>
         </section>
 
-        <!-- Footer (as section for active link) -->
+        <!-- Footer (as section for active link detection) -->
         <section id="contact" class="py-8 md:py-10 bg-slate-900 text-slate-200">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="grid md:grid-cols-2 gap-10">
@@ -486,6 +487,7 @@
             </div>
         </section>
     </main>
+
     <a href="#" class="fixed bottom-6 right-6 bg-sky-600 text-white p-3 rounded-full shadow-lg hover:bg-sky-700 transition opacity-70 hover:opacity-100">
         <i class="fas fa-arrow-up"></i>
     </a>
@@ -534,7 +536,7 @@
         window.addEventListener('scroll', updateActiveLink);
         window.addEventListener('load', updateActiveLink);
 
-        // Gallery lightbox code (unchanged)
+        // Gallery lightbox code
         let galleries = {};
         let currentGalleryId = null;
         let currentIndex = 0;

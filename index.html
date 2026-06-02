@@ -73,31 +73,34 @@
             opacity: 1;
             visibility: visible;
         }
-        /* Lightbox gallery arrows */
-        .gallery-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.6);
-            color: white;
-            font-size: 2rem;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            border-radius: 0.5rem;
-            transition: background 0.2s;
-            z-index: 60;
-        }
-        .gallery-arrow:hover {
-            background: rgba(0,0,0,0.8);
-        }
-        .gallery-arrow.prev {
-            left: 1rem;
-        }
-        .gallery-arrow.next {
-            right: 1rem;
-        }
     </style>
 </head>
+<!-- Image Modal (lightbox) -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center" onclick="closeModal()">
+    <img id="modalImage" class="max-w-[90%] max-h-[90%] object-contain rounded shadow-2xl">
+    <button class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300" onclick="closeModal()">&times;</button>
+</div>
+
+<script>
+    function openModal(src) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modalImg.src = src;
+    }
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
 <body class="bg-white text-gray-800 antialiased">
 
     <!-- Navigation -->
@@ -117,27 +120,30 @@
     </nav>
 
     <main>
-        <!-- Hero section (unchanged) -->
+        <!-- Hero section with background image -->
         <section class="hero-bg py-20 md:py-28">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Left column -->
                     <div class="md:-ml-8">
                         <div class="inline-flex items-center gap-2 bg-sky-50 text-sky-700 text-xs font-medium px-3 py-1 rounded-full mb-6">Wind Energy · Mechanical Engineering</div>
                         <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 leading-tight">
-                            <span class="text-2xl md:text-3xl">M.Sc. Candidate in</span><br>
+                            <span class="text-2xl md:text-3xl">M.Sc. Candidate in</span>
+                            <br>
                             <span class="text-sky-600">Wind Energy Engineering</span>
                         </h1>
                         <p class="text-lg text-gray-800 mt-6 leading-relaxed md:text-justify break-words">Background in Mechanical Engineering with hands‑on experience in aeroelastic simulations, structural dynamics, control, automation and wind farm modelling. Skilled in Python, MATLAB, OpenFAST, ANSYS, WindPro and PowerBI.</p>
                         <div class="flex flex-wrap gap-4 mt-8">
+                            <!-- CV Download Button -->
                             <a href="cv_araz_mehrabani.pdf" download class="bg-sky-600 hover:bg-sky-700 text-white font-medium px-6 py-2.5 rounded-full transition shadow-sm">
                                 <i class="fas fa-download mr-2"></i>Download CV
                             </a>
                         </div>
                     </div>
+                    <!-- Right column - identity card -->
                     <div>
-                        <!-- Identity card (unchanged) -->
                         <div class="bg-gradient-to-br from-sky-50 to-indigo-50 rounded-3xl p-1 w-fit ml-auto">
-                            <div class="bg-white rounded-2xl p-6 shadow w-[420px] mx-auto md:mx-0 md:ml-auto">
+                            <div class="bg-white rounded-2xl p-6 shadow w-full w-[420px] mx-auto md:mx-0 md:ml-auto">
                                 <div class="flex items-center gap-4 border-b border-gray-100 pb-4 mb-4">
                                     <div class="h-20 w-20 rounded-full bg-sky-100 overflow-hidden flex-shrink-0">
                                         <img src="images/profile.jpg" alt="Araz Mehrabani" class="w-full h-full object-cover object-[center_30%]">
@@ -149,10 +155,25 @@
                                     </div>
                                 </div>
                                 <div class="space-y-3 text-sm">
-                                    <div class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-sky-500 w-4"></i><span>Wedel, Schleswig-Holstein, Germany</span></div>
-                                    <div class="flex items-center gap-3"><i class="fas fa-envelope text-sky-500 w-4"></i><a href="mailto:araz.h.mehrabani@gmail.com" class="hover:text-sky-600">araz.h.mehrabani@gmail.com</a></div>
-                                    <div class="flex items-center gap-3"><i class="fas fa-phone-alt text-sky-500 w-4"></i><span>+49 1575 436 3238</span></div>
-                                    <div class="flex items-center gap-3"><i class="fas fa-link text-sky-500 w-4"></i><div class="flex flex-wrap gap-3"><a href="https://github.com/Araz-m" target="_blank" class="hover:text-sky-600">GitHub</a><a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-sky-600">LinkedIn</a></div></div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-map-marker-alt text-sky-500 w-4"></i>
+                                        <span>Wedel, Schleswig-Holstein, Germany</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-envelope text-sky-500 w-4"></i>
+                                        <a href="mailto:araz.h.mehrabani@gmail.com" class="hover:text-sky-600">araz.h.mehrabani@gmail.com</a>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-phone-alt text-sky-500 w-4"></i>
+                                        <span>+49 1575 436 3238</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <i class="fas fa-link text-sky-500 w-4"></i>
+                                        <div class="flex flex-wrap gap-3">
+                                            <a href="https://github.com/Araz-m" target="_blank" class="hover:text-sky-600 transition-colors">GitHub</a>
+                                            <a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-sky-600">LinkedIn</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -161,159 +182,334 @@
             </div>
         </section>
 
-        <!-- About, Skills, Experience, Education (unchanged from your last version) -->
-        <section id="about" class="py-20 bg-white"><div class="max-w-7xl mx-auto px-6 md:px-8"><div class="md:-ml-8"><h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-4">My engineering journey</h2><div class="text-gray-600 space-y-4 text-justify"><p>I am a Master's student in Wind Energy Engineering at Hochschule Flensburg with a prior Master's degree in Mechanical Engineering. My passion lies at the intersection of automation, structural dynamics, control, aeroelastic simulations, and wind farm optimisation.</p><p>During my Master's projects, I performed aeroelastic load simulations for a 20 MW offshore monopile wind turbine using OpenFAST, Python and MATLAB, including IEC 61400‑1 Design Load Cases. Beyond simulations, I developed Python automation to streamline OpenFAST workflows and cut manual post‑processing time.</p><p>I also bring professional experience from Paydar (solar energy systems) and TehranRigzar (mining equipment), where I led structural analyses (ANSYS), technical documentation, and cross‑functional project coordination. Earlier, I developed a control system for an underwater welding robot (MATLAB) and contributed as a volunteer engineer to an artificial hand prosthesis project.</p></div></div></div></section>
-
-        <section id="skills" class="py-20 bg-gray-50"><div class="max-w-7xl mx-auto px-6 md:px-8"><div class="md:-ml-8"><h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Technical expertise</h2><p class="text-gray-500 mb-6">Tools & technologies I use daily</p></div><div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><!-- skill cards as in your last version (I keep them unchanged for brevity) --></div></div></section>
-
-        <section id="experience" class="py-20 bg-white"><div class="max-w-7xl mx-auto px-6 md:px-8"><div class="md:-ml-8"><h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-3">Work experience</h2><div class="space-y-8 mt-8"><div class="border-l-4 border-sky-400 pl-6"><div class="flex flex-wrap justify-between items-baseline gap-2"><h3 class="text-xl font-semibold text-gray-800">Junior Development Engineer – Paydar (Solar Energy Systems), Tehran</h3><span class="text-sm text-gray-500 whitespace-nowrap">01/2022 – 02/2023</span></div><ul class="mt-2 space-y-1 text-gray-600"><li>• Designed & optimized solar mounting systems (SolidWorks) and performed structural analyses (ANSYS) → 10% scrap reduction.</li><li>• Maintained technical documentation & SAP‑based engineering data.</li></ul></div><div class="border-l-4 border-sky-400 pl-6"><div class="flex flex-wrap justify-between items-baseline gap-2"><h3 class="text-xl font-semibold text-gray-800">Mechanical Engineer – TehranRigzar (Mining Equipment), Tehran</h3><span class="text-sm text-gray-500 whitespace-nowrap">03/2017 – 12/2021</span></div><ul class="mt-2 space-y-1 text-gray-600"><li>• Designed large mining assemblies (CATIA V5) + dynamic/structural analysis (ANSYS) → 20% performance improvement.</li><li>• Led progress meetings and coordinated project teams to ensure on‑time delivery.</li><li>• Prepared engineering documentation and maintained customer project records.</li></ul></div></div></div></div></section>
-
-        <section id="education" class="py-20 bg-gray-50"><div class="max-w-7xl mx-auto px-6 md:px-8"><div class="md:-ml-8"><h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-8">Education & certifications</h2><div class="space-y-6"><div><div class="flex flex-wrap justify-between items-baseline"><h3 class="text-xl font-semibold text-gray-800">M.Sc. Wind Energy Engineering (GPA 1.9)</h3><span class="text-sm text-gray-500">03/2023 – present</span></div><p class="text-gray-600">Hochschule Flensburg, Germany — Aeroelastic load simulations (OpenFAST), Python automation, WindPro, IEC 61400‑1 DLCs.</p></div><div><div class="flex flex-wrap justify-between items-baseline"><h3 class="text-xl font-semibold text-gray-800">M.Sc. Mechanical Engineering</h3><span class="text-sm text-gray-500">09/2014 – 01/2017</span></div><p class="text-gray-600">Hakim Sabzevari University, Khorasan — Control system for underwater robot (MATLAB).</p></div><div><div class="flex flex-wrap justify-between items-baseline"><h3 class="text-xl font-semibold text-gray-800">B.Sc. Mechanical Engineering</h3><span class="text-sm text-gray-500">09/2008 – 06/2013</span></div><p class="text-gray-600">Azad University, Tehran — Screening machine design (CATIA/ANSYS), vibration analysis.</p></div></div><div class="mt-8 pt-4 border-t border-gray-200"><h3 class="font-semibold text-gray-800">Selected certifications</h3><div class="flex flex-wrap gap-3 mt-2"><div class="cert-container relative inline-block"><a href="certificates/python-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">Python – HarvardX</a><img src="images/cert-thumb-python.jpg" alt="Python Certificate Preview" class="cert-hover-img"></div><div class="cert-container relative inline-block"><a href="certificates/ansys-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">ANSYS Workbench – IEEE</a><img src="images/cert-thumb-ansys.jpg" alt="ANSYS Certificate Preview" class="cert-hover-img"></div><div class="cert-container relative inline-block"><a href="certificates/solidworks-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">SOLIDWORKS – ITVTO</a><img src="images/cert-thumb-solidworks.jpg" alt="SOLIDWORKS Certificate Preview" class="cert-hover-img"></div><div class="cert-container relative inline-block"><a href="https://github.com/Araz-m/araz-m.github.io/tree/main/certificates" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">CATIA V5 – Amirkabir University</a><img src="images/cert-thumb-catia.jpg" alt="CATIA Certificate Preview" class="cert-hover-img"></div></div></div></div></div></section>
-
-        <!-- Projects Section with per-project galleries (arrow navigation) -->
-        <section id="projects" class="py-20 bg-white">
+        <!-- About section -->
+        <section id="about" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Selected projects</h2>
-                    <p class="text-gray-500 mb-6">Engineering simulations, automation, and analysis</p>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        
-                        <!-- Project 1: 20 MW Offshore Monopile Load Analysis (gallery id = proj1) -->
-                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fas fa-wind text-2xl text-sky-600"></i>
-                                <h3 class="text-lg font-semibold text-gray-800">20 MW Offshore Monopile Load Analysis</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm mt-1">Aeroelastic load simulations for a 20 MW offshore wind turbine using OpenFAST, Python, and MATLAB. Implemented IEC 61400‑1 Design Load Cases (normal, extreme, fault, parked, seismic). Post‑processed structural loads and dynamic behaviour.</p>
-                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj1">
-                                <img src="images/project1/loads_plot1.jpg" alt="Load result" title="Load result & Tip Clearance" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/loads_plot1.jpg">
-                                <img src="images/project1/turbine_model.jpg" alt="OpenFAST model" title="OpenFAST turbine model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/turbine_model.jpg">
-                                <img src="images/project1/ieccases.jpg" alt="IEC load cases" title="IEC load cases" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/ieccases.jpg">
-                                <img src="images/project1/result_chart.png" alt="Response data" title="Response data" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/result_chart.png">
-                            </div>
-                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">IEC 61400-1</span></div>
-                        </div>
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-4">My engineering journey</h2>
+                    <div class="text-gray-600 space-y-4 text-justify">
+                        <p>I am a Master's student in Wind Energy Engineering at Hochschule Flensburg with a prior Master's degree in Mechanical Engineering. My passion lies at the intersection of automation, structural dynamics, control, aeroelastic simulations, and wind farm optimisation.</p>
+                        <p>During my Master's projects, I performed aeroelastic load simulations for a 20 MW offshore monopile wind turbine using OpenFAST, Python and MATLAB, including IEC 61400‑1 Design Load Cases. Beyond simulations, I developed Python automation to streamline OpenFAST workflows and cut manual post‑processing time.</p>
+                        <p>I also bring professional experience from Paydar (solar energy systems) and TehranRigzar (mining equipment), where I led structural analyses (ANSYS), technical documentation, and cross‑functional project coordination. Earlier, I developed a control system for an underwater welding robot (MATLAB) and contributed as a volunteer engineer to an artificial hand prosthesis project.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <!-- Project 2: OpenFAST Automation Framework (no gallery needed but keep as is) -->
-                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fas fa-robot text-2xl text-sky-600"></i>
-                                <a href="https://github.com/Araz-m/OpenFAST-DLC-Runner.py" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-gray-800 hover:text-sky-600 transition">OpenFAST Automation Framework</a>
-                            </div>
-                            <p class="text-gray-600 text-sm mt-1">Developed Python scripts to automate OpenFAST simulation workflows: batch job execution, parameter sweeps, and automated post‑processing of load time‑series data. Reduced manual processing time significantly.</p>
-                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Automation</span></div>
+        <!-- Skills section -->
+        <section id="skills" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="md:-ml-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Technical expertise</h2>
+                    <p class="text-gray-500 mb-6">Tools & technologies I use daily</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Wind Energy -->
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
+                        <i class="fas fa-wind text-3xl text-sky-600 mb-2"></i>
+                        <div class="font-semibold text-sky-700 text-lg">Wind Energy</div>
+                        <div class="text-gray-600 mt-2 text-sm space-y-1">
+                            <div><span class="font-medium text-sky-600">Simulation:</span> OpenFAST</div>
+                            <div><span class="font-medium text-sky-600">Planning:</span> WindPro, QGIS</div>
+                            <div><span class="font-medium text-sky-600">Standards:</span> IEC 61400‑1 Load Cases</div>
+                            <div><span class="font-medium text-sky-600">Analysis:</span> aeroelastic simulations, energy yield, curtailment</div>
                         </div>
-
-                        <!-- Project 3: WindPro Yield Assessment (gallery id = proj3) -->
-                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fas fa-chart-line text-2xl text-sky-600"></i>
-                                <h3 class="text-lg font-semibold text-gray-800">WindPro Yield Assessment</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm mt-1">Performed wind farm energy yield simulations, noise calculation, shadow flicker analysis, and bat curtailment strategies using WindPro. Assessed site suitability and energy production estimates.</p>
-                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj3">
-                                <img src="images/project3/noise_contour.jpg" alt="Noise contour" title="Noise calculation – sound contour lines" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/noise_contour.jpg">
-                                <img src="images/project3/shadow_flicker.jpg" alt="Shadow flicker" title="Shadow flicker analysis – affected areas" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/shadow_flicker.jpg">
-                                <img src="images/project3/QGIS_planning.jpg" alt="QGIS planning" title="QGIS planning – Wind and Site Assessment" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/QGIS_planning.jpg">
-                            </div>
-                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">WindPro</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">QGIS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Curtailment</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Noise/Shadow</span></div>
+                    </div>
+                    
+                    <!-- Programming & Data -->
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
+                        <i class="fas fa-code text-3xl text-sky-600 mb-2"></i>
+                        <div class="font-semibold text-sky-700 text-lg">Programming & Data</div>
+                        <div class="text-gray-600 mt-2 text-sm space-y-1">
+                            <div><span class="font-medium text-sky-600">Languages:</span> Python, MATLAB</div>
+                            <div><span class="font-medium text-sky-600">Data:</span> Power BI, pandas, numpy</div>
+                            <div><span class="font-medium text-sky-600">Tools:</span> GitHub, VS Code, mini conda</div>
                         </div>
-
-                        <!-- Project 4: Underwater Robot Controller (gallery id = proj4) -->
-                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fas fa-microscope text-2xl text-sky-600"></i>
-                                <h3 class="text-lg font-semibold text-gray-800">Underwater Robot Controller</h3>
+                    </div>
+                    
+                    <!-- CAD & CAE -->
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
+                        <i class="fas fa-drafting-compass text-3xl text-sky-600 mb-2"></i>
+                        <div class="font-semibold text-sky-700 text-lg">CAD & CAE</div>
+                        <div class="text-gray-600 mt-2 text-sm space-y-1">
+                            <div><span class="font-medium text-sky-600">CAD:</span> CATIA, SolidWorks, Autodesk Inventor, Siemens NX</div>
+                            <div><span class="font-medium text-sky-600">CAE/FEA:</span> ANSYS Workbench, ABAQUS</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Management -->
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
+                        <i class="fas fa-tasks text-3xl text-sky-600 mb-2"></i>
+                        <div class="font-semibold text-sky-700 text-lg">Project Management</div>
+                        <div class="text-gray-600 mt-2 text-sm space-y-1">
+                            <div><span class="font-medium text-sky-600">Tools:</span> MS Project, SAP</div>
+                            <div><span class="font-medium text-sky-600">Skills:</span> technical documentation, cross‑functional coordination</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Research -->
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
+                        <i class="fas fa-microscope text-3xl text-sky-600 mb-2"></i>
+                        <div class="font-semibold text-sky-700 text-lg">Research</div>
+                        <div class="text-gray-600 mt-2 text-sm space-y-1">
+                            <div><span class="font-medium text-sky-600">Publications:</span> <a href="https://scholar.google.com/citations?user=lojR5GEAAAAJ&hl=en" target="_blank" class="text-sky-600 hover:underline">4 peer-reviewed papers</a> (control systems, robotics)</div>
+                            <div><span class="font-medium text-sky-600">Tools:</span> MATLAB/Simulink</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Languages -->
+                    <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
+                        <i class="fas fa-language text-3xl text-sky-600 mb-2"></i>
+                        <div class="font-semibold text-sky-700 text-lg">Languages</div>
+                        <div class="text-gray-600 mt-2 text-sm space-y-1">
+                            <div><span class="font-medium text-sky-600">Fluent:</span> English (IELTS 7), Persian (native)</div>
+                            <div><span class="font-medium text-sky-600">Intermediate:</span> German (B1, actively improving)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Work Experience -->
+        <section id="experience" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="md:-ml-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-3">Work experience</h2>
+                    <div class="space-y-8 mt-8">
+                        <div class="border-l-4 border-sky-400 pl-6">
+                            <div class="flex flex-wrap justify-between items-baseline gap-2">
+                                <h3 class="text-xl font-semibold text-gray-800">Junior Development Engineer – Paydar (Solar Energy Systems), Tehran</h3>
+                                <span class="text-sm text-gray-500 whitespace-nowrap">01/2022 – 02/2023</span>
                             </div>
-                            <p class="text-gray-600 text-sm mt-1">Developed a control system for an autonomous underwater welding robot using MATLAB/Simulink. Resulted in 4 peer‑reviewed publications.</p>
-                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj4">
-                                <img src="images/project4/robot_simulink_model.jpg" alt="Simulink model" title="MATLAB/Simulink control system model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_simulink_model.jpg">
-                                <img src="images/project4/robot_prototype.jpg" alt="Robot prototype" title="Prototype of the autonomous underwater welding robot" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_prototype.jpg">
+                            <ul class="mt-2 space-y-1 text-gray-600">
+                                <li>• Designed & optimized solar mounting systems (SolidWorks) and performed structural analyses (ANSYS) → 10% scrap reduction.</li>
+                                <li>• Maintained technical documentation & SAP‑based engineering data.</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-sky-400 pl-6">
+                            <div class="flex flex-wrap justify-between items-baseline gap-2">
+                                <h3 class="text-xl font-semibold text-gray-800">Mechanical Engineer – TehranRigzar (Mining Equipment), Tehran</h3>
+                                <span class="text-sm text-gray-500 whitespace-nowrap">03/2017 – 12/2021</span>
                             </div>
-                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Simulink</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Control Systems</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Robotics</span></div>
+                            <ul class="mt-2 space-y-1 text-gray-600">
+                                <li>• Designed large mining assemblies (CATIA V5) + dynamic/structural analysis (ANSYS) → 20% performance improvement.</li>
+                                <li>• Led progress meetings and coordinated project teams to ensure on‑time delivery.</li>
+                                <li>• Prepared engineering documentation and maintained customer project records.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Research Section (unchanged) -->
-        <section id="research" class="py-20 bg-gray-50"><div class="max-w-7xl mx-auto px-6 md:px-8"><div class="md:-ml-8"><h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-8">Research & publications</h2><div class="grid md:grid-cols-2 gap-8"><div class="bg-white rounded-2xl p-6 border border-gray-100 transition hover:shadow-md"><div class="flex items-center gap-3 mb-4"><i class="fas fa-wind text-2xl text-sky-600"></i><h3 class="text-xl font-semibold text-gray-800">Wind Energy Research (M.Sc.)</h3></div><ul class="space-y-2 text-gray-700"><li>• Offshore wind turbine load analysis (IEC 61400‑1)</li><li>• Python‑driven automation of aeroelastic workflows</li><li>• Wind farm energy yield & project simulation (WindPro)</li><li>• Structural dynamics & vibration analysis (ANSYS)</li><li>• Bat curtailment / noise / shadow flicker planning</li></ul></div><div class="bg-white rounded-2xl p-6 border border-gray-100 transition hover:shadow-md"><div class="flex items-center gap-3 mb-4"><i class="fas fa-microscope text-2xl text-sky-600"></i><h3 class="text-xl font-semibold text-gray-800">Control Systems Research (M.Sc.)</h3></div><ul class="space-y-2 text-gray-700"><li>• Developed control system for autonomous underwater welding robot</li><li>• peer-reviewed publications (MATLAB/Simulink)</li><li>• Available on <a href="https://scholar.google.com/citations?user=lojR5GEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Google Scholar</a></li></ul></div></div></div></div></section>
+        <!-- Education -->
+        <section id="education" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="md:-ml-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-8">Education & certifications</h2>
+                    <div class="space-y-6">
+                        <div><div class="flex flex-wrap justify-between items-baseline"><h3 class="text-xl font-semibold text-gray-800">M.Sc. Wind Energy Engineering (GPA 1.9)</h3><span class="text-sm text-gray-500">03/2023 – present</span></div><p class="text-gray-600">Hochschule Flensburg, Germany — Aeroelastic load simulations (OpenFAST), Python automation, WindPro, IEC 61400‑1 DLCs.</p></div>
+                        <div><div class="flex flex-wrap justify-between items-baseline"><h3 class="text-xl font-semibold text-gray-800">M.Sc. Mechanical Engineering</h3><span class="text-sm text-gray-500">09/2014 – 01/2017</span></div><p class="text-gray-600">Hakim Sabzevari University, Khorasan — Control system for underwater robot (MATLAB).</p></div>
+                        <div><div class="flex flex-wrap justify-between items-baseline"><h3 class="text-xl font-semibold text-gray-800">B.Sc. Mechanical Engineering</h3><span class="text-sm text-gray-500">09/2008 – 06/2013</span></div><p class="text-gray-600">Azad University, Tehran — Screening machine design (CATIA/ANSYS), vibration analysis.</p></div>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-gray-200">
+                        <h3 class="font-semibold text-gray-800">Selected certifications</h3>
+                        <div class="flex flex-wrap gap-3 mt-2">
+                            <div class="cert-container relative inline-block">
+                                <a href="certificates/python-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">Python – HarvardX</a>
+                                <img src="images/cert-thumb-python.jpg" alt="Python Certificate Preview" class="cert-hover-img">
+                            </div>
+                            <div class="cert-container relative inline-block">
+                                <a href="certificates/ansys-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">ANSYS Workbench – IEEE</a>
+                                <img src="images/cert-thumb-ansys.jpg" alt="ANSYS Certificate Preview" class="cert-hover-img">
+                            </div>
+                            <div class="cert-container relative inline-block">
+                                <a href="certificates/solidworks-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">SOLIDWORKS – ITVTO</a>
+                                <img src="images/cert-thumb-solidworks.jpg" alt="SOLIDWORKS Certificate Preview" class="cert-hover-img">
+                            </div>
+                            <div class="cert-container relative inline-block">
+                                <a href="https://github.com/Araz-m/araz-m.github.io/tree/main/certificates" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">CATIA V5 – Amirkabir University</a>
+                                <img src="images/cert-thumb-catia.jpg" alt="CATIA Certificate Preview" class="cert-hover-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Footer -->
-        <footer id="contact" class="py-16 bg-slate-900 text-slate-200"><div class="max-w-7xl mx-auto px-6 md:px-8"><div class="grid md:grid-cols-2 gap-10"><div class="md:-ml-8"><h3 class="text-xl font-medium text-white mb-3">Contact info</h3><ul class="space-y-2 text-slate-300"><li><i class="fas fa-map-marker-alt text-sky-400 w-5 mr-2"></i> Wedel, Germany</li><li class="flex items-center gap-3"><i class="fas fa-phone-alt text-green-500 w-5"></i><a href="tel:+4915754363238" class="hover:text-sky-300">+49 1575 436 3238</a></li><li class="flex items-center gap-3"><i class="fas fa-envelope text-sky-400 w-5"></i><a href="mailto:araz.h.mehrabani@gmail.com" class="hover:text-sky-300">araz.h.mehrabani@gmail.com</a></li><li class="flex gap-3"><a href="https://github.com/Araz-m" target="_blank" class="hover:text-sky-300"><i class="fab fa-github text-2xl"></i></a><a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-sky-300"><i class="fab fa-linkedin text-2xl"></i></a></li></ul></div><div class="md:ml-16"><h3 class="text-2xl font-semibold text-white mb-3">Let’s connect</h3><p class="text-slate-300 max-w-md">I am actively looking for opportunities in wind energy – load analysis, simulation, wind farm planning, or engineering coordination. Feel free to reach out.</p></div></div><div class="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400 text-sm">© 2026 Araz Hamayeli Mehrabani – Built by me, for you to explore.</div></div></footer>
-    </main>
-    <a href="#" class="fixed bottom-6 right-6 bg-sky-600 text-white p-3 rounded-full shadow-lg hover:bg-sky-700 transition opacity-70 hover:opacity-100"><i class="fas fa-arrow-up"></i></a>
+        <!-- Projects Section (new) -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="md:-ml-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Selected projects</h2>
+                    <p class="text-gray-500 mb-6">Engineering simulations, automation, and analysis</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Project 1: 20 MW Offshore Monopile Load Analysis (with gallery) -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+    <div class="flex items-center gap-2 mb-2">
+        <i class="fas fa-wind text-2xl text-sky-600"></i>
+        <h3 class="text-lg font-semibold text-gray-800">20 MW Offshore Monopile Load Analysis</h3>
+    </div>
+    <p class="text-gray-600 text-sm mt-1">Aeroelastic load simulations for a 20 MW offshore wind turbine using OpenFAST, Python, and MATLAB. Implemented IEC 61400‑1 Design Load Cases (normal, extreme, fault, parked, seismic). Post‑processed structural loads and dynamic behaviour.</p>
 
-    <!-- Advanced lightbox with next/prev navigation (per gallery) -->
-    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center" onclick="closeLightbox(event)">
-        <span class="gallery-arrow prev" onclick="navigateGallery(-1)">&#10094;</span>
-        <img id="lightbox-img" class="max-w-[80%] max-h-[80%] object-contain">
-        <span class="gallery-arrow next" onclick="navigateGallery(1)">&#10095;</span>
-        <button class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300" onclick="closeLightbox()">&times;</button>
+    <!-- Gallery thumbnails -->
+    <div class="flex flex-wrap gap-2 mt-3">
+        <img src="images/project1/loads_plot1.jpg" alt="Load simulation result 1" title="Load result & Tip Clearance" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img" onclick="openModal(this.src)">
+        <img src="images/project1/turbine_model.jpg" alt="OpenFAST turbine model" title="OpenFAST turbine model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img" onclick="openModal(this.src)">
+        <img src="images/project1/ieccases.jpg" alt="IEC load cases" title="IEC load cases" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img" onclick="openModal(this.src)">
+        <img src="images/project1/result_chart.png" alt="Response data" title="Response data" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img" onclick="openModal(this.src)">
     </div>
 
-    <script>
-        // Store all gallery images per project
-        let galleries = {};
-        let currentGalleryId = null;
-        let currentIndex = 0;
+    <div class="flex flex-wrap gap-2 mt-3">
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">IEC 61400-1</span>
+    </div>
+</div>
+                        <!-- Project 2: OpenFAST Automation Framework (Hyperlinked) -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+    <div class="flex items-center gap-2 mb-2">
+        <i class="fas fa-robot text-2xl text-sky-600"></i>
+        <a href="https://github.com/Araz-m/OpenFAST-DLC-Runner.py" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-gray-800 hover:text-sky-600 transition">OpenFAST Automation Framework</a>
+    </div>
+    <p class="text-gray-600 text-sm mt-1">Developed Python scripts to automate OpenFAST simulation workflows: batch job execution, parameter sweeps, and automated post‑processing of load time‑series data. Reduced manual processing time significantly.</p>
+    <div class="flex flex-wrap gap-2 mt-3">
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">Automation</span>
+    </div>
+</div>
+                        <!-- Project 3: WindPro Yield Assessment (with gallery) -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+    <div class="flex items-center gap-2 mb-2">
+        <i class="fas fa-chart-line text-2xl text-sky-600"></i>
+        <h3 class="text-lg font-semibold text-gray-800">WindPro Yield Assessment</h3>
+    </div>
+    <p class="text-gray-600 text-sm mt-1">Performed wind farm energy yield simulations, noise calculation, shadow flicker analysis, and bat curtailment strategies using WindPro. Assessed site suitability and energy production estimates.</p>
 
-        // Collect all project galleries
-        document.querySelectorAll('.project-gallery').forEach(gallery => {
-            const id = gallery.getAttribute('data-gallery-id');
-            const images = Array.from(gallery.querySelectorAll('.gallery-thumb')).map(img => img.getAttribute('data-img-src'));
-            galleries[id] = images;
-            // Attach click event to each thumbnail
-            gallery.querySelectorAll('.gallery-thumb').forEach((thumb, idx) => {
-                thumb.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    currentGalleryId = id;
-                    currentIndex = idx;
-                    openLightbox(images[currentIndex]);
-                });
-            });
-        });
+    <!-- Gallery thumbnails with hover tooltips -->
+    <div class="flex flex-wrap gap-2 mt-3">
+        <img src="images/project3/noise_contour.jpg"
+             alt="Noise contour"
+             title="Noise calculation – sound contour lines around turbines"
+             class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img"
+             onclick="openModal(this.src)">
+        <img src="images/project3/shadow_flicker.jpg"
+             alt="Shadow flicker"
+             title="Shadow flicker analysis – affected areas and duration"
+             class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img"
+             onclick="openModal(this.src)">
+        <img src="images/project3/QGIS_planning.jpg"
+             alt="QGIS planning"
+             title="QGIS palnning strategy – Wind and Site Assessment"
+             class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img"
+             onclick="openModal(this.src)">
+    </div>
 
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
-        }
+    <div class="flex flex-wrap gap-2 mt-3">
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">WindPro</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">QGIS</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">Curtailment</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">Noise/Shadow</span>
+    </div>
+</div>
+                        <!-- Project 4: Underwater Robot Controller (with gallery) -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+    <div class="flex items-center gap-2 mb-2">
+        <i class="fas fa-microscope text-2xl text-sky-600"></i>
+        <h3 class="text-lg font-semibold text-gray-800">Underwater Robot Controller</h3>
+    </div>
+    <p class="text-gray-600 text-sm mt-1">Developed a control system for an autonomous underwater welding robot using MATLAB/Simulink. Resulted in 4 peer‑reviewed publications.</p>
 
-        function closeLightbox(event) {
-            // If event is undefined or clicked on lightbox background or the close button
-            if (!event || event.target === document.getElementById('lightbox') || event.target.classList?.contains('gallery-arrow')) {
-                const lightbox = document.getElementById('lightbox');
-                lightbox.classList.add('hidden');
-                lightbox.classList.remove('flex');
-                document.getElementById('lightbox-img').src = '';
-                currentGalleryId = null;
-            }
-        }
+    <!-- Gallery thumbnails with hover tooltips -->
+    <div class="flex flex-wrap gap-2 mt-3">
+        <img src="images/project4/robot_simulink_model.jpg"
+             alt="Simulink model"
+             title="MATLAB/Simulink control system model"
+             class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img"
+             onclick="openModal(this.src)">
+        <img src="images/project4/robot_prototype.png"
+             alt="Robot prototype"
+             title="Prototype of the autonomous underwater welding robot"
+             class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img"
+             onclick="openModal(this.src)">
+    </div>
 
-        function navigateGallery(direction) {
-            if (!currentGalleryId || !galleries[currentGalleryId]) return;
-            const images = galleries[currentGalleryId];
-            let newIndex = currentIndex + direction;
-            if (newIndex < 0) newIndex = images.length - 1;
-            if (newIndex >= images.length) newIndex = 0;
-            currentIndex = newIndex;
-            document.getElementById('lightbox-img').src = images[currentIndex];
-        }
+    <div class="flex flex-wrap gap-2 mt-3">
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">Simulink</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">Control Systems</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">Robotics</span>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        // Close on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            } else if (e.key === 'ArrowLeft' && currentGalleryId) {
-                navigateGallery(-1);
-            } else if (e.key === 'ArrowRight' && currentGalleryId) {
-                navigateGallery(1);
-            }
-        });
-    </script>
+        <!-- Research Section -->
+        <section id="research" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="md:-ml-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-8">Research & publications</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-2xl p-6 border border-gray-100 transition hover:shadow-md">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-wind text-2xl text-sky-600"></i>
+                                <h3 class="text-xl font-semibold text-gray-800">Wind Energy Research (M.Sc.)</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Offshore wind turbine load analysis (IEC 61400‑1)</li>
+                                <li>• Python‑driven automation of aeroelastic workflows</li>
+                                <li>• Wind farm energy yield & project simulation (WindPro)</li>
+                                <li>• Structural dynamics & vibration analysis (ANSYS)</li>
+                                <li>• Bat curtailment / noise / shadow flicker planning</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 border border-gray-100 transition hover:shadow-md">
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fas fa-microscope text-2xl text-sky-600"></i>
+                                <h3 class="text-xl font-semibold text-gray-800">Control Systems Research (M.Sc.)</h3>
+                            </div>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• Developed control system for autonomous underwater welding robot</li>
+                                <li>• peer-reviewed publications (MATLAB/Simulink)</li>
+                                <li>• Available on <a href="https://scholar.google.com/citations?user=lojR5GEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Google Scholar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="py-16 bg-slate-900 text-slate-200">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="md:-ml-8">
+                        <h3 class="text-xl font-medium text-white mb-3">Contact info</h3>
+                        <ul class="space-y-2 text-slate-300">
+                            <li><i class="fas fa-map-marker-alt text-sky-400 w-5 mr-2"></i> Wedel, Germany</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-phone-alt text-green-500 w-5"></i><a href="tel:+4915754363238" class="hover:text-sky-300">+49 1575 436 3238</a></li>                    
+                            <li class="flex items-center gap-3"><i class="fas fa-envelope text-sky-400 w-5"></i><a href="mailto:araz.h.mehrabani@gmail.com" class="hover:text-sky-300">araz.h.mehrabani@gmail.com</a></li>
+                            <li class="flex gap-3">
+                                <a href="https://github.com/Araz-m" target="_blank" class="hover:text-sky-300"><i class="fab fa-github text-2xl"></i></a>
+                                <a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-sky-300"><i class="fab fa-linkedin text-2xl"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:ml-16">
+                        <h3 class="text-2xl font-semibold text-white mb-3">Let’s connect</h3>
+                        <p class="text-slate-300 max-w-md">I am actively looking for opportunities in wind energy – load analysis, simulation, wind farm planning, or engineering coordination. Feel free to reach out.</p>
+                    </div>
+                </div>
+                <div class="border-t border-slate-700 mt-12 pt-8 text-center text-slate-400 text-sm">© 2026 Araz Hamayeli Mehrabani – Built by me, for you to explore.</div>
+            </div>
+        </footer>
+    </main>
+    <a href="#" class="fixed bottom-6 right-6 bg-sky-600 text-white p-3 rounded-full shadow-lg hover:bg-sky-700 transition opacity-70 hover:opacity-100">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 </body>
 </html>

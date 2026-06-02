@@ -73,7 +73,7 @@
             opacity: 1;
             visibility: visible;
         }
-        /* NEW: lightbox arrow styles */
+        /* Lightbox arrow styles */
         .gallery-arrow {
             position: absolute;
             top: 50%;
@@ -97,6 +97,11 @@
         .gallery-arrow.next {
             right: 1rem;
         }
+        /* Active navigation link style */
+        .nav-link.active {
+            color: #0ea5e9; /* sky-600 */
+            font-weight: 600;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
@@ -106,19 +111,19 @@
         <div class="max-w-7xl mx-auto px-6 md:px-8 py-4 flex flex-wrap justify-between items-center gap-3">
             <div class="text-xl font-semibold tracking-tight text-sky-800 md:-ml-8">Araz Hamayeli Mehrabani</div>
             <div class="flex gap-6 text-sm font-medium text-gray-600">
-                <a href="#about" class="hover:text-sky-600 transition">About</a>
-                <a href="#skills" class="hover:text-sky-600 transition">Skills</a>
-                <a href="#experience" class="hover:text-sky-600 transition">Experience</a>
-                <a href="#education" class="hover:text-sky-600 transition">Education</a>
-                <a href="#projects" class="hover:text-sky-600 transition">Projects</a>
-                <a href="#research" class="hover:text-sky-600 transition">Research</a>
-                <a href="#contact" class="hover:text-sky-600 transition">Contact</a>
+                <a href="#about" class="nav-link hover:text-sky-600 transition">About</a>
+                <a href="#skills" class="nav-link hover:text-sky-600 transition">Skills</a>
+                <a href="#experience" class="nav-link hover:text-sky-600 transition">Experience</a>
+                <a href="#education" class="nav-link hover:text-sky-600 transition">Education</a>
+                <a href="#projects" class="nav-link hover:text-sky-600 transition">Projects</a>
+                <a href="#research" class="nav-link hover:text-sky-600 transition">Research</a>
+                <a href="#contact" class="nav-link hover:text-sky-600 transition">Contact</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <!-- Hero section with background image -->
+        <!-- Hero section ... (unchanged) -->
         <section class="hero-bg py-20 md:py-28">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="grid md:grid-cols-2 gap-12">
@@ -183,7 +188,7 @@
                     <p class="text-gray-500 mb-6">Tools & technologies I use daily</p>
                 </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Wind Energy -->
+                    <!-- (skills cards remain unchanged) -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-wind text-3xl text-sky-600 mb-2"></i>
                         <div class="font-semibold text-sky-700 text-lg">Wind Energy</div>
@@ -194,7 +199,6 @@
                             <div><span class="font-medium text-sky-600">Analysis:</span> aeroelastic simulations, energy yield, curtailment</div>
                         </div>
                     </div>
-                    
                     <!-- Programming & Data -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-code text-3xl text-sky-600 mb-2"></i>
@@ -205,7 +209,6 @@
                             <div><span class="font-medium text-sky-600">Tools:</span> GitHub, VS Code, mini conda</div>
                         </div>
                     </div>
-                    
                     <!-- CAD & CAE -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-drafting-compass text-3xl text-sky-600 mb-2"></i>
@@ -215,7 +218,6 @@
                             <div><span class="font-medium text-sky-600">CAE/FEA:</span> ANSYS Workbench, ABAQUS</div>
                         </div>
                     </div>
-                    
                     <!-- Project Management -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-tasks text-3xl text-sky-600 mb-2"></i>
@@ -225,7 +227,6 @@
                             <div><span class="font-medium text-sky-600">Skills:</span> technical documentation, cross‑functional coordination</div>
                         </div>
                     </div>
-                    
                     <!-- Research -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-microscope text-3xl text-sky-600 mb-2"></i>
@@ -235,7 +236,6 @@
                             <div><span class="font-medium text-sky-600">Tools:</span> MATLAB/Simulink</div>
                         </div>
                     </div>
-                    
                     <!-- Languages -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
                         <i class="fas fa-language text-3xl text-sky-600 mb-2"></i>
@@ -316,104 +316,99 @@
             </div>
         </section>
 
-        <!-- Projects Section (with two new cards added) -->
-<section id="projects" class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6 md:px-8">
-        <div class="md:-ml-8">
-            <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Selected projects</h2>
-            <p class="text-gray-500 mb-6">Engineering simulations, automation, and analysis</p>
-            <div class="grid md:grid-cols-2 gap-6">
-                
-                <!-- Project 1: 20 MW Offshore Monopile Load Analysis (existing) -->
-                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-wind text-2xl text-sky-600"></i>
-                        <h3 class="text-lg font-semibold text-gray-800">20 MW Offshore Monopile Load Analysis</h3>
+        <!-- Projects Section (unchanged, with all existing projects) -->
+        <section id="projects" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-6 md:px-8">
+                <div class="md:-ml-8">
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Selected projects</h2>
+                    <p class="text-gray-500 mb-6">Engineering simulations, automation, and analysis</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- (All your project cards remain exactly as you have them) -->
+                        <!-- Project 1 -->
+                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-wind text-2xl text-sky-600"></i>
+                                <h3 class="text-lg font-semibold text-gray-800">20 MW Offshore Monopile Load Analysis</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-1">Aeroelastic load simulations for a 20 MW offshore wind turbine using OpenFAST, Python, and MATLAB. Implemented IEC 61400‑1 Design Load Cases (normal, extreme, fault, parked, seismic). Post‑processed structural loads and dynamic behaviour.</p>
+                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj1">
+                                <img src="images/project1/loads_plot1.jpg" alt="Load result" title="Load result & Tip Clearance" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/loads_plot1.jpg">
+                                <img src="images/project1/turbine_model.jpg" alt="OpenFAST model" title="OpenFAST turbine model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/turbine_model.jpg">
+                                <img src="images/project1/ieccases.jpg" alt="IEC load cases" title="IEC load cases" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/ieccases.jpg">
+                                <img src="images/project1/result_chart.png" alt="Response data" title="Response data" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/result_chart.png">
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">IEC 61400-1</span></div>
+                        </div>
+                        <!-- Project 2 -->
+                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-robot text-2xl text-sky-600"></i>
+                                <a href="https://github.com/Araz-m/OpenFAST-DLC-Runner.py" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-gray-800 hover:text-sky-600 transition">OpenFAST Automation Framework</a>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-1">Developed Python scripts to automate OpenFAST simulation workflows: batch job execution, parameter sweeps, and automated post‑processing of load time‑series data. Reduced manual processing time significantly.</p>
+                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Automation</span></div>
+                        </div>
+                        <!-- Project 3 -->
+                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-chart-line text-2xl text-sky-600"></i>
+                                <h3 class="text-lg font-semibold text-gray-800">WindPro Yield Assessment</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-1">Performed wind farm energy yield simulations, noise calculation, shadow flicker analysis, and bat curtailment strategies using WindPro. Assessed site suitability and energy production estimates.</p>
+                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj3">
+                                <img src="images/project3/noise_contour.jpg" alt="Noise contour" title="Noise calculation – sound contour lines" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/noise_contour.jpg">
+                                <img src="images/project3/shadow_flicker.jpg" alt="Shadow flicker" title="Shadow flicker analysis – affected areas" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/shadow_flicker.jpg">
+                                <img src="images/project3/QGIS_planning.jpg" alt="QGIS planning" title="QGIS planning – Wind and Site Assessment" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/QGIS_planning.jpg">
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">WindPro</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">QGIS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Curtailment</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Noise/Shadow</span></div>
+                        </div>
+                        <!-- Project 4 -->
+                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-microscope text-2xl text-sky-600"></i>
+                                <h3 class="text-lg font-semibold text-gray-800">Underwater Robot Controller</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-1">Developed a control system for an autonomous underwater welding robot using MATLAB/Simulink. Resulted in 4 peer‑reviewed publications.</p>
+                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj4">
+                                <img src="images/project4/robot_simulink_model.jpg" alt="Simulink model" title="MATLAB/Simulink control system model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_simulink_model.jpg">
+                                <img src="images/project4/robot_prototype.png" alt="Robot prototype" title="Prototype of the autonomous underwater welding robot" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_prototype.png">
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Simulink</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Control Systems</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Robotics</span></div>
+                        </div>
+                        <!-- Project 5 (TehranRigzar) -->
+                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-hard-hat text-2xl text-sky-600"></i>
+                                <h3 class="text-lg font-semibold text-gray-800">Large Mining Equipment Design & Structural Optimization</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-1">Designed large mechanical assemblies for mining equipment, including high‑frequency vibrating screens, using CATIA V5. Performed dynamic and structural analyses with ANSYS, achieving 20% performance improvement and reduced material costs. Coordinated project teams and led progress meetings to ensure timely delivery.</p>
+                            <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj5">
+                                <img src="images/project5/mining_screen_3d.jpg" alt="Vibrating screen assembly" title="3D model of high‑frequency vibrating screen" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/mining_screen_3d.jpg">
+                                <img src="images/project5/ansys_modal_analysis.jpg" alt="ANSYS modal analysis" title="Structural modal analysis result" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/ansys_modal_analysis.jpg">
+                                <img src="images/project5/Jaw_Crusher_3d.jpg" alt="Jaw Crusher assembly" title="3D model of medium size stone crusher" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/Jaw_Crusher_3d.jpg">
+                                <img src="images/project5/Heat exchanger_3d.jpg" alt="Heat exchanger assembly" title="Heat exchanger assembly" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/Heat exchanger_3d.jpg">
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">CATIA V5</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">ANSYS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Structural Analysis</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Project Coordination</span></div>
+                        </div>
+                        <!-- Project 6 (Volunteering) -->
+                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+                            <div class="flex items-center gap-2 mb-2">
+                                <i class="fas fa-hand-holding-heart text-2xl text-sky-600"></i>
+                                <h3 class="text-lg font-semibold text-gray-800">Artificial Hand Prosthesis (Volunteer)</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm mt-1">Volunteer engineer contributing to the mechanical design and development of a low‑cost prosthetic hand. Involved in concept design, material selection, 3d Printer modification and prototyping to improve accessibility for amputees.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <img src="images/project6/prosthesis_cad.jpg" alt="Prosthesis CAD model" title="Isometric view of prosthetic hand" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project6/prosthesis_cad.jpg">
+                                <img src="images/project6/prototype_photo.jpg" alt="Prototype photo" title="Physical prototype of the prosthetic hand" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project6/prototype_photo.jpg">
+                                <img src="images/project6/Modified_3D_printer.jpg" alt="Modified 3D printer" title="3D printer during operation" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project6/Modified_3D_printer.jpg">
+                            </div>
+                            <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">Mechanical Design</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">CAD</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Prototyping</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Volunteering</span></div>
+                        </div>
                     </div>
-                    <p class="text-gray-600 text-sm mt-1">Aeroelastic load simulations for a 20 MW offshore wind turbine using OpenFAST, Python, and MATLAB. Implemented IEC 61400‑1 Design Load Cases (normal, extreme, fault, parked, seismic). Post‑processed structural loads and dynamic behaviour.</p>
-                    <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj1">
-                        <img src="images/project1/loads_plot1.jpg" alt="Load result" title="Load result & Tip Clearance" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/loads_plot1.jpg">
-                        <img src="images/project1/turbine_model.jpg" alt="OpenFAST model" title="OpenFAST turbine model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/turbine_model.jpg">
-                        <img src="images/project1/ieccases.jpg" alt="IEC load cases" title="IEC load cases" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/ieccases.jpg">
-                        <img src="images/project1/result_chart.png" alt="Response data" title="Response data" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project1/result_chart.png">
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">IEC 61400-1</span></div>
                 </div>
-
-                <!-- Project 2: OpenFAST Automation Framework (existing) -->
-                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-robot text-2xl text-sky-600"></i>
-                        <a href="https://github.com/Araz-m/OpenFAST-DLC-Runner.py" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-gray-800 hover:text-sky-600 transition">OpenFAST Automation Framework</a>
-                    </div>
-                    <p class="text-gray-600 text-sm mt-1">Developed Python scripts to automate OpenFAST simulation workflows: batch job execution, parameter sweeps, and automated post‑processing of load time‑series data. Reduced manual processing time significantly.</p>
-                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Automation</span></div>
-                </div>
-
-                <!-- Project 3: WindPro Yield Assessment (existing) -->
-                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-chart-line text-2xl text-sky-600"></i>
-                        <h3 class="text-lg font-semibold text-gray-800">WindPro Yield Assessment</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm mt-1">Performed wind farm energy yield simulations, noise calculation, shadow flicker analysis, and bat curtailment strategies using WindPro. Assessed site suitability and energy production estimates.</p>
-                    <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj3">
-                        <img src="images/project3/noise_contour.jpg" alt="Noise contour" title="Noise calculation – sound contour lines" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/noise_contour.jpg">
-                        <img src="images/project3/shadow_flicker.jpg" alt="Shadow flicker" title="Shadow flicker analysis – affected areas" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/shadow_flicker.jpg">
-                        <img src="images/project3/QGIS_planning.jpg" alt="QGIS planning" title="QGIS planning – Wind and Site Assessment" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project3/QGIS_planning.jpg">
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">WindPro</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">QGIS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Curtailment</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Noise/Shadow</span></div>
-                </div>
-
-                <!-- Project 4: Underwater Robot Controller (existing) -->
-                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-microscope text-2xl text-sky-600"></i>
-                        <h3 class="text-lg font-semibold text-gray-800">Underwater Robot Controller</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm mt-1">Developed a control system for an autonomous underwater welding robot using MATLAB/Simulink. Resulted in 4 peer‑reviewed publications.</p>
-                    <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj4">
-                        <img src="images/project4/robot_simulink_model.jpg" alt="Simulink model" title="MATLAB/Simulink control system model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_simulink_model.jpg">
-                        <img src="images/project4/robot_prototype.png" alt="Robot prototype" title="Prototype of the autonomous underwater welding robot" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project4/robot_prototype.png">
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Simulink</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Control Systems</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Robotics</span></div>
-                </div>
-
-                <!-- NEW PROJECT 5: Mechanical Engineering - TehranRigzar (Mining Equipment) -->
-<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-    <div class="flex items-center gap-2 mb-2">
-        <i class="fas fa-hard-hat text-2xl text-sky-600"></i>
-        <h3 class="text-lg font-semibold text-gray-800">Large Mining Equipment Design & Structural Optimization</h3>
-    </div>
-    <p class="text-gray-600 text-sm mt-1">Designed large mechanical assemblies for mining equipment, including high‑frequency vibrating screens, using CATIA V5. Performed dynamic and structural analyses with ANSYS, achieving 20% performance improvement and reduced material costs. Coordinated project teams and led progress meetings to ensure timely delivery.</p>
-    <div class="flex flex-wrap gap-2 mt-3 project-gallery" data-gallery-id="proj5">
-        <img src="images/project5/mining_screen_3d.jpg" alt="Vibrating screen assembly" title="3D model of high‑frequency vibrating screen" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/mining_screen_3d.jpg">
-        <img src="images/project5/ansys_modal_analysis.jpg" alt="ANSYS modal analysis" title="Structural modal analysis result" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/ansys_modal_analysis.jpg">
-        <img src="images/project5/Jaw_Crusher_3d.jpg" alt="Jaw Crusher assembly" title="3D model of medium size stone crusher" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/Jaw_Crusher_3d.jpg">
-        <img src="images/project5/Heat exchanger_3d.jpg" alt="Heat exchanger assembly" title="Heat exchanger assembly" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project5/Heat exchanger_3d.jpg">
-    </div>
-    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">CATIA V5</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">ANSYS</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Structural Analysis</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Project Coordination</span></div>
-</div>
-
-                <!-- NEW PROJECT 6: Volunteering - Artificial Hand Prosthesis -->
-                <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                    <div class="flex items-center gap-2 mb-2">
-                        <i class="fas fa-hand-holding-heart text-2xl text-sky-600"></i>
-                        <h3 class="text-lg font-semibold text-gray-800">Artificial Hand Prosthesis (Volunteer)</h3>
-                    </div>
-                    <p class="text-gray-600 text-sm mt-1">Volunteer engineer contributing to the mechanical design and development of a low‑cost prosthetic hand. Involved in concept design, material selection, 3d Printer modification and prototyping to improve accessibility for amputees.</p>
-                    <div class="flex flex-wrap gap-2 mt-3">
-                        <img src="images/project6/prosthesis_cad.jpg" alt="Prosthesis CAD model" title="Isometric view of prosthetic hand" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project6/prosthesis_cad.jpg">
-                        <img src="images/project6/prototype_photo.jpg" alt="Prototype photo" title="Physical prototype of the prosthetic hand" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project6/prototype_photo.jpg">
-                        <img src="images/project6/Modified_3D_printer.jpg" alt="Modified 3D printer" title="3D printer during operation" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-thumb" data-img-src="images/project6/Modified_3D_printer.jpg">
-                    </div>
-                    <div class="flex flex-wrap gap-2 mt-3"><span class="text-xs bg-gray-100 px-2 py-1 rounded">Mechanical Design</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">CAD</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Prototyping</span><span class="text-xs bg-gray-100 px-2 py-1 rounded">Volunteering</span></div>
-                </div>
-
             </div>
-        </div>
-    </div>
-</section>
+        </section>
+
         <!-- Research Section -->
         <section id="research" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
@@ -478,83 +473,107 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Enhanced lightbox with previous/next arrows (fixed) -->
-<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center">
-    <span class="gallery-arrow prev" onclick="navigateGallery(-1); event.stopPropagation();">&#10094;</span>
-    <img id="lightbox-img" class="max-w-[80%] max-h-[80%] object-contain" onclick="event.stopPropagation();">
-    <span class="gallery-arrow next" onclick="navigateGallery(1); event.stopPropagation();">&#10095;</span>
-    <button class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300" onclick="closeLightbox(); event.stopPropagation();">&times;</button>
-</div>
+    <!-- Enhanced lightbox with previous/next arrows (unchanged) -->
+    <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center">
+        <span class="gallery-arrow prev" onclick="navigateGallery(-1); event.stopPropagation();">&#10094;</span>
+        <img id="lightbox-img" class="max-w-[80%] max-h-[80%] object-contain" onclick="event.stopPropagation();">
+        <span class="gallery-arrow next" onclick="navigateGallery(1); event.stopPropagation();">&#10095;</span>
+        <button class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300" onclick="closeLightbox(); event.stopPropagation();">&times;</button>
+    </div>
 
     <script>
-    // Store galleries: each project has an array of image URLs
-    let galleries = {};
-    let currentGalleryId = null;
-    let currentIndex = 0;
+        // Active section highlighting for navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-    // Collect all project galleries and attach click events
-    document.querySelectorAll('.project-gallery').forEach(gallery => {
-        const id = gallery.getAttribute('data-gallery-id');
-        const images = Array.from(gallery.querySelectorAll('.gallery-thumb')).map(img => img.getAttribute('data-img-src'));
-        galleries[id] = images;
+        function updateActiveLink() {
+            let current = '';
+            const scrollPosition = window.scrollY + 100; // offset for sticky header
 
-        gallery.querySelectorAll('.gallery-thumb').forEach((thumb, idx) => {
-            thumb.addEventListener('click', (e) => {
-                e.stopPropagation();
-                currentGalleryId = id;
-                currentIndex = idx;
-                openLightbox(images[currentIndex]);
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href').substring(1); // remove '#'
+                if (href === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('load', updateActiveLink);
+
+        // ----- Gallery lightbox code (unchanged) -----
+        let galleries = {};
+        let currentGalleryId = null;
+        let currentIndex = 0;
+
+        document.querySelectorAll('.project-gallery').forEach(gallery => {
+            const id = gallery.getAttribute('data-gallery-id');
+            const images = Array.from(gallery.querySelectorAll('.gallery-thumb')).map(img => img.getAttribute('data-img-src'));
+            galleries[id] = images;
+
+            gallery.querySelectorAll('.gallery-thumb').forEach((thumb, idx) => {
+                thumb.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    currentGalleryId = id;
+                    currentIndex = idx;
+                    openLightbox(images[currentIndex]);
+                });
             });
         });
-    });
 
-    function openLightbox(src) {
-        const lightbox = document.getElementById('lightbox');
-        const img = document.getElementById('lightbox-img');
-        img.src = src;
-        lightbox.classList.remove('hidden');
-        lightbox.classList.add('flex');
-        // Prevent body scroll
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-        const lightbox = document.getElementById('lightbox');
-        lightbox.classList.add('hidden');
-        lightbox.classList.remove('flex');
-        document.getElementById('lightbox-img').src = '';
-        currentGalleryId = null;
-        document.body.style.overflow = '';
-    }
-
-    function navigateGallery(direction) {
-        if (!currentGalleryId || !galleries[currentGalleryId]) return;
-        const images = galleries[currentGalleryId];
-        let newIndex = currentIndex + direction;
-        if (newIndex < 0) newIndex = images.length - 1;
-        if (newIndex >= images.length) newIndex = 0;
-        currentIndex = newIndex;
-        document.getElementById('lightbox-img').src = images[currentIndex];
-    }
-
-    // Close lightbox when clicking on the background overlay (but not on image or arrows)
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-        if (e.target === this) { // clicked directly on the dark background
-            closeLightbox();
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
         }
-    });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (!document.getElementById('lightbox').classList.contains('flex')) return;
-        if (e.key === 'Escape') {
-            closeLightbox();
-        } else if (e.key === 'ArrowLeft') {
-            navigateGallery(-1);
-        } else if (e.key === 'ArrowRight') {
-            navigateGallery(1);
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.getElementById('lightbox-img').src = '';
+            currentGalleryId = null;
+            document.body.style.overflow = '';
         }
-    });
-</script>
+
+        function navigateGallery(direction) {
+            if (!currentGalleryId || !galleries[currentGalleryId]) return;
+            const images = galleries[currentGalleryId];
+            let newIndex = currentIndex + direction;
+            if (newIndex < 0) newIndex = images.length - 1;
+            if (newIndex >= images.length) newIndex = 0;
+            currentIndex = newIndex;
+            document.getElementById('lightbox-img').src = images[currentIndex];
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('flex')) return;
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                navigateGallery(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateGallery(1);
+            }
+        });
+    </script>
 </body>
 </html>

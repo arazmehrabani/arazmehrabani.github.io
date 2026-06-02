@@ -75,6 +75,32 @@
         }
     </style>
 </head>
+<!-- Image Modal (lightbox) -->
+<div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden items-center justify-center" onclick="closeModal()">
+    <img id="modalImage" class="max-w-[90%] max-h-[90%] object-contain rounded shadow-2xl">
+    <button class="absolute top-4 right-4 text-white text-4xl font-bold hover:text-gray-300" onclick="closeModal()">&times;</button>
+</div>
+
+<script>
+    function openModal(src) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        modalImg.src = src;
+    }
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+</script>
 <body class="bg-white text-gray-800 antialiased">
 
     <!-- Navigation -->
@@ -318,20 +344,29 @@
                     <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Selected projects</h2>
                     <p class="text-gray-500 mb-6">Engineering simulations, automation, and analysis</p>
                     <div class="grid md:grid-cols-2 gap-6">
-                        <!-- Project 1: 20 MW Offshore Monopile Load Analysis -->
-                        <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
-                            <div class="flex items-center gap-2 mb-2">
-                                <i class="fas fa-wind text-2xl text-sky-600"></i>
-                                <h3 class="text-lg font-semibold text-gray-800">20 MW Offshore Monopile Load Analysis</h3>
-                            </div>
-                            <p class="text-gray-600 text-sm mt-1">Aeroelastic load simulations for a 20 MW offshore wind turbine using OpenFAST, Python, and MATLAB. Implemented IEC 61400‑1 Design Load Cases (normal, extreme, fault, parked, seismic). Post‑processed structural loads and dynamic behaviour.</p>
-                            <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span>
-                                <span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span>
-                                <span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span>
-                                <span class="text-xs bg-gray-100 px-2 py-1 rounded">IEC 61400-1</span>
-                            </div>
-                        </div>
+                        <!-- Project 1: 20 MW Offshore Monopile Load Analysis (with gallery) -->
+<div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
+    <div class="flex items-center gap-2 mb-2">
+        <i class="fas fa-wind text-2xl text-sky-600"></i>
+        <h3 class="text-lg font-semibold text-gray-800">20 MW Offshore Monopile Load Analysis</h3>
+    </div>
+    <p class="text-gray-600 text-sm mt-1">Aeroelastic load simulations for a 20 MW offshore wind turbine using OpenFAST, Python, and MATLAB. Implemented IEC 61400‑1 Design Load Cases (normal, extreme, fault, parked, seismic). Post‑processed structural loads and dynamic behaviour.</p>
+
+    <!-- Gallery thumbnails -->
+    <div class="flex flex-wrap gap-2 mt-3">
+        <img src="images/project1/loads_plot1.jpg" alt="Load simulation result 1" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img" onclick="openModal(this.src)">
+        <img src="images/project1/turbine_model.jpg" alt="OpenFAST turbine model" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img" onclick="openModal(this.src)">
+        <img src="images/project1/ieccases.jpg" alt="IEC load cases" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img" onclick="openModal(this.src)">
+        <img src="images/project1/result_chart.png" alt="Response data" class="w-20 h-20 object-cover rounded-lg cursor-pointer hover:opacity-80 transition gallery-img" onclick="openModal(this.src)">
+    </div>
+
+    <div class="flex flex-wrap gap-2 mt-3">
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">OpenFAST</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">Python</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">MATLAB</span>
+        <span class="text-xs bg-gray-100 px-2 py-1 rounded">IEC 61400-1</span>
+    </div>
+</div>
                         <!-- Project 2: OpenFAST Automation Framework (Hyperlinked) -->
 <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
     <div class="flex items-center gap-2 mb-2">

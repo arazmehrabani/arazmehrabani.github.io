@@ -9,16 +9,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        :root {
+            --amber: #f59e0b;
+            --amber-light: #fef3c7;
+            --amber-dark: #d97706;
+            --sky: #0ea5e9;
+            --sky-dark: #0284c7;
+        }
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
         .card-hover {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
         .card-hover:hover {
             transform: translateY(-4px);
             box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+            border-color: var(--amber) !important;
         }
         .hero-bg {
             background-image: url('images/hero-bg.jpg');
@@ -90,32 +98,142 @@
         .gallery-arrow:hover {
             background: rgba(0,0,0,0.8);
         }
-        .gallery-arrow.prev {
-            left: 1rem;
-        }
-        .gallery-arrow.next {
-            right: 1rem;
-        }
+        .gallery-arrow.prev { left: 1rem; }
+        .gallery-arrow.next { right: 1rem; }
+
         .nav-link.active {
-            color: #0ea5e9;
+            color: var(--amber);
             font-weight: 600;
+        }
+        .nav-link:hover {
+            color: var(--amber) !important;
+        }
+
+        /* Amber accent on skill card icons on hover */
+        .card-hover:hover i {
+            color: var(--amber) !important;
+        }
+        .card-hover:hover .font-semibold.text-sky-700 {
+            color: var(--amber-dark) !important;
+        }
+
+        /* Experience timeline accent */
+        .border-amber {
+            border-color: var(--amber);
+        }
+
+        /* Download button amber variant */
+        .btn-amber {
+            background-color: var(--amber);
+            color: #1c1917;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        .btn-amber:hover {
+            background-color: var(--amber-dark);
+        }
+
+        /* Research card accent line */
+        .research-card {
+            border-top: 3px solid transparent;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        .research-card:hover {
+            border-top-color: var(--amber);
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+        .research-card .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--amber);
+            line-height: 1;
+        }
+        .research-card .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        /* Footer enhancements */
+        .footer-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1rem;
+            padding: 1.5rem;
+        }
+        .footer-social-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background: rgba(255,255,255,0.07);
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+        }
+        .footer-social-btn:hover {
+            background: var(--amber);
+            color: #1c1917;
+        }
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+        .footer-contact-item:last-of-type {
+            border-bottom: none;
+        }
+        .footer-contact-item a:hover {
+            color: var(--amber);
+        }
+        .footer-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            background: rgba(245,158,11,0.15);
+            color: var(--amber);
+            border: 1px solid rgba(245,158,11,0.3);
+            margin: 0.2rem;
+        }
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
     </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-    <!-- Navigation (mobile-friendly) -->
+    <!-- Navigation -->
     <nav class="border-b border-gray-100 bg-white/80 backdrop-blur-sm sticky top-0 z-30">
         <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-wrap justify-between items-center gap-3">
             <div class="text-xl font-semibold tracking-tight text-sky-800 md:-ml-8">Araz Hamayeli Mehrabani</div>
             <div class="flex flex-wrap justify-center gap-3 md:gap-6 text-sm font-medium text-gray-600">
-                <a href="#about" class="nav-link hover:text-sky-600 transition">About</a>
-                <a href="#skills" class="nav-link hover:text-sky-600 transition">Skills</a>
-                <a href="#experience" class="nav-link hover:text-sky-600 transition">Experience</a>
-                <a href="#education" class="nav-link hover:text-sky-600 transition">Education</a>
-                <a href="#projects" class="nav-link hover:text-sky-600 transition">Projects</a>
-                <a href="#research" class="nav-link hover:text-sky-600 transition">Research</a>
-                <a href="#contact" class="nav-link hover:text-sky-600 transition">Contact</a>
+                <a href="#about" class="nav-link hover:text-amber-500 transition">About</a>
+                <a href="#skills" class="nav-link hover:text-amber-500 transition">Skills</a>
+                <a href="#experience" class="nav-link hover:text-amber-500 transition">Experience</a>
+                <a href="#education" class="nav-link hover:text-amber-500 transition">Education</a>
+                <a href="#projects" class="nav-link hover:text-amber-500 transition">Projects</a>
+                <a href="#research" class="nav-link hover:text-amber-500 transition">Research</a>
+                <a href="#contact" class="nav-link hover:text-amber-500 transition">Contact</a>
             </div>
         </div>
     </nav>
@@ -137,7 +255,7 @@
                             </a>
                         </div>
                     </div>
-                    <!-- Identity card (responsive width + hover effect) -->
+                    <!-- Identity card -->
                     <div class="-mt-6 md:-mt-12">
                         <div class="bg-white rounded-2xl p-6 shadow w-full max-w-[460px] mx-auto md:mx-0 md:ml-auto transition-all duration-300 hover:bg-white/50">
                             <div class="flex items-center gap-4 border-b border-gray-100 pb-4 mb-4">
@@ -152,9 +270,14 @@
                             </div>
                             <div class="space-y-3 text-sm">
                                 <div class="flex items-center gap-3"><i class="fas fa-map-marker-alt text-sky-500 w-4"></i><span>Wedel, Schleswig-Holstein, Germany</span></div>
-                                <div class="flex items-center gap-3"><i class="fas fa-envelope text-sky-500 w-4"></i><a href="mailto:araz.h.mehrabani@gmail.com" class="hover:text-sky-600">araz.h.mehrabani@gmail.com</a></div>
+                                <div class="flex items-center gap-3"><i class="fas fa-envelope text-sky-500 w-4"></i><a href="mailto:araz.h.mehrabani@gmail.com" class="hover:text-amber-500">araz.h.mehrabani@gmail.com</a></div>
                                 <div class="flex items-center gap-3"><i class="fas fa-phone-alt text-sky-500 w-4"></i><span>+49 1575 436 3238</span></div>
-                                <div class="flex items-center gap-3"><i class="fas fa-link text-sky-500 w-4"></i><div class="flex flex-wrap gap-3"><a href="https://github.com/arazmehrabani" target="_blank" class="hover:text-sky-600">GitHub</a><a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-sky-600">LinkedIn</a></div></div>
+                                <div class="flex items-center gap-3"><i class="fas fa-link text-sky-500 w-4"></i>
+                                    <div class="flex flex-wrap gap-3">
+                                        <a href="https://github.com/arazmehrabani" target="_blank" class="hover:text-amber-500">GitHub</a>
+                                        <a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-amber-500">LinkedIn</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -182,10 +305,9 @@
                     <p class="text-gray-500 mb-4">Tools & technologies I use daily</p>
                 </div>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Wind Energy -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                        <i class="fas fa-wind text-3xl text-sky-600 mb-2"></i>
-                        <div class="font-semibold text-sky-700 text-lg">Wind Energy</div>
+                        <i class="fas fa-wind text-3xl text-sky-600 mb-2 transition-colors duration-200"></i>
+                        <div class="font-semibold text-sky-700 text-lg transition-colors duration-200">Wind Energy</div>
                         <div class="text-gray-600 mt-2 text-sm space-y-1">
                             <div><span class="font-medium text-sky-600">Simulation:</span> OpenFAST</div>
                             <div><span class="font-medium text-sky-600">Planning:</span> WindPro, QGIS</div>
@@ -193,47 +315,42 @@
                             <div><span class="font-medium text-sky-600">Analysis:</span> aeroelastic simulations, energy yield, curtailment</div>
                         </div>
                     </div>
-                    <!-- Programming & Data -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                        <i class="fas fa-code text-3xl text-sky-600 mb-2"></i>
-                        <div class="font-semibold text-sky-700 text-lg">Programming & Data</div>
+                        <i class="fas fa-code text-3xl text-sky-600 mb-2 transition-colors duration-200"></i>
+                        <div class="font-semibold text-sky-700 text-lg transition-colors duration-200">Programming & Data</div>
                         <div class="text-gray-600 mt-2 text-sm space-y-1">
                             <div><span class="font-medium text-sky-600">Languages:</span> Python, MATLAB</div>
                             <div><span class="font-medium text-sky-600">Data:</span> Power BI, pandas, numpy</div>
                             <div><span class="font-medium text-sky-600">Tools:</span> GitHub, VS Code, mini conda</div>
                         </div>
                     </div>
-                    <!-- CAD & CAE -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                        <i class="fas fa-drafting-compass text-3xl text-sky-600 mb-2"></i>
-                        <div class="font-semibold text-sky-700 text-lg">CAD & CAE</div>
+                        <i class="fas fa-drafting-compass text-3xl text-sky-600 mb-2 transition-colors duration-200"></i>
+                        <div class="font-semibold text-sky-700 text-lg transition-colors duration-200">CAD & CAE</div>
                         <div class="text-gray-600 mt-2 text-sm space-y-1">
                             <div><span class="font-medium text-sky-600">CAD:</span> CATIA, SolidWorks, Autodesk Inventor, Siemens NX</div>
                             <div><span class="font-medium text-sky-600">CAE/FEA:</span> ANSYS Workbench, ABAQUS</div>
                         </div>
                     </div>
-                    <!-- Project Management -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                        <i class="fas fa-tasks text-3xl text-sky-600 mb-2"></i>
-                        <div class="font-semibold text-sky-700 text-lg">Project Management</div>
+                        <i class="fas fa-tasks text-3xl text-sky-600 mb-2 transition-colors duration-200"></i>
+                        <div class="font-semibold text-sky-700 text-lg transition-colors duration-200">Project Management</div>
                         <div class="text-gray-600 mt-2 text-sm space-y-1">
                             <div><span class="font-medium text-sky-600">Tools:</span> MS Project, SAP</div>
                             <div><span class="font-medium text-sky-600">Skills:</span> technical documentation, cross‑functional coordination</div>
                         </div>
                     </div>
-                    <!-- Research -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                        <i class="fas fa-microscope text-3xl text-sky-600 mb-2"></i>
-                        <div class="font-semibold text-sky-700 text-lg">Research</div>
+                        <i class="fas fa-microscope text-3xl text-sky-600 mb-2 transition-colors duration-200"></i>
+                        <div class="font-semibold text-sky-700 text-lg transition-colors duration-200">Research</div>
                         <div class="text-gray-600 mt-2 text-sm space-y-1">
                             <div><span class="font-medium text-sky-600">Publications:</span> <a href="https://scholar.google.com/citations?user=lojR5GEAAAAJ&hl=en" target="_blank" class="text-sky-600 hover:underline">4 peer-reviewed papers</a> (control systems, robotics)</div>
                             <div><span class="font-medium text-sky-600">Tools:</span> MATLAB/Simulink</div>
                         </div>
                     </div>
-                    <!-- Languages -->
                     <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover group">
-                        <i class="fas fa-language text-3xl text-sky-600 mb-2"></i>
-                        <div class="font-semibold text-sky-700 text-lg">Languages</div>
+                        <i class="fas fa-language text-3xl text-sky-600 mb-2 transition-colors duration-200"></i>
+                        <div class="font-semibold text-sky-700 text-lg transition-colors duration-200">Languages</div>
                         <div class="text-gray-600 mt-2 text-sm space-y-1">
                             <div><span class="font-medium text-sky-600">Fluent:</span> English (IELTS 7), Persian (native)</div>
                             <div><span class="font-medium text-sky-600">Intermediate:</span> German (B1, actively improving)</div>
@@ -249,9 +366,9 @@
                 <div class="md:-ml-8">
                     <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-3">Work experience</h2>
                     <div class="space-y-6 mt-4">
-                        <div class="border-l-4 border-sky-400 pl-6">
+                        <div class="border-l-4 pl-6" style="border-color: var(--amber);">
                             <div class="flex flex-wrap justify-between items-baseline gap-2">
-                                <h3 class="text-xl font-semibold text-gray-800">Junior Development Engineer – Paydar (Solar Energy Systems), Tehran</h3>
+                                <h3 class="text-xl font-semibold text-gray-800">Mechanical Engineer (R&D) – Paydar (Solar Energy Systems), Tehran</h3>
                                 <span class="text-sm text-gray-500 whitespace-nowrap">01/2022 – 02/2023</span>
                             </div>
                             <ul class="mt-2 space-y-1 text-gray-600">
@@ -259,7 +376,7 @@
                                 <li>• Maintained technical documentation & SAP‑based engineering data.</li>
                             </ul>
                         </div>
-                        <div class="border-l-4 border-sky-400 pl-6">
+                        <div class="border-l-4 pl-6" style="border-color: var(--amber);">
                             <div class="flex flex-wrap justify-between items-baseline gap-2">
                                 <h3 class="text-xl font-semibold text-gray-800">Mechanical Engineer – TehranRigzar (Mining Equipment), Tehran</h3>
                                 <span class="text-sm text-gray-500 whitespace-nowrap">03/2017 – 12/2021</span>
@@ -281,27 +398,45 @@
                 <div class="md:-ml-8">
                     <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-5">Education & certifications</h2>
                     <div class="space-y-4">
-                        <div><div class="flex flex-wrap justify-between items-baseline"><h3 class="text-xl font-semibold text-gray-800">M.Sc. Wind Energy Engineering (GPA 1.9)</h3><span class="text-sm text-gray-500">03/2023 – present</span></div><p class="text-gray-600">Hochschule Flensburg, Germany — Aeroelastic load simulations (OpenFAST), Python automation, WindPro, IEC 61400‑1 DLCs.</p></div>
-                        <div><div class="flex flex-wrap justify-between items-baseline"><h3 class="text-xl font-semibold text-gray-800">M.Sc. Mechanical Engineering</h3><span class="text-sm text-gray-500">09/2014 – 01/2017</span></div><p class="text-gray-600">Hakim Sabzevari University, Khorasan — Control system for underwater robot (MATLAB).</p></div>
-                        <div><div class="flex flex-wrap justify-between items-baseline"><h3 class="text-xl font-semibold text-gray-800">B.Sc. Mechanical Engineering</h3><span class="text-sm text-gray-500">09/2008 – 06/2013</span></div><p class="text-gray-600">Azad University, Tehran — Screening machine design (CATIA/ANSYS), vibration analysis.</p></div>
+                        <div>
+                            <div class="flex flex-wrap justify-between items-baseline">
+                                <h3 class="text-xl font-semibold text-gray-800">M.Sc. Wind Energy Engineering (GPA 1.9)</h3>
+                                <span class="text-sm text-gray-500">03/2023 – present</span>
+                            </div>
+                            <p class="text-gray-600">Hochschule Flensburg, Germany — Aeroelastic load simulations (OpenFAST), Python automation, WindPro, IEC 61400‑1 DLCs.</p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap justify-between items-baseline">
+                                <h3 class="text-xl font-semibold text-gray-800">M.Sc. Mechanical Engineering</h3>
+                                <span class="text-sm text-gray-500">09/2014 – 01/2017</span>
+                            </div>
+                            <p class="text-gray-600">Hakim Sabzevari University — Control system for underwater robot (MATLAB). 4 peer-reviewed publications.</p>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap justify-between items-baseline">
+                                <h3 class="text-xl font-semibold text-gray-800">B.Sc. Mechanical Engineering</h3>
+                                <span class="text-sm text-gray-500">09/2008 – 06/2013</span>
+                            </div>
+                            <p class="text-gray-600">Azad University — Screening machine design (CATIA/ANSYS), vibration analysis.</p>
+                        </div>
                     </div>
                     <div class="mt-6 pt-4 border-t border-gray-200">
                         <h3 class="font-semibold text-gray-800">Selected certifications</h3>
                         <div class="flex flex-wrap gap-3 mt-2">
                             <div class="cert-container relative inline-block">
-                                <a href="certificates/python-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">Python – HarvardX</a>
+                                <a href="certificates/python-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-amber-50 hover:text-amber-600 transition inline-block">Python – HarvardX</a>
                                 <img src="images/cert-thumb-python.jpg" alt="Python Certificate Preview" class="cert-hover-img">
                             </div>
                             <div class="cert-container relative inline-block">
-                                <a href="certificates/ansys-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">ANSYS Workbench – IEEE</a>
+                                <a href="certificates/ansys-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-amber-50 hover:text-amber-600 transition inline-block">ANSYS Workbench – IEEE</a>
                                 <img src="images/cert-thumb-ansys.jpg" alt="ANSYS Certificate Preview" class="cert-hover-img">
                             </div>
                             <div class="cert-container relative inline-block">
-                                <a href="certificates/solidworks-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">SOLIDWORKS – ITVTO</a>
+                                <a href="certificates/solidworks-cert.pdf" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-amber-50 hover:text-amber-600 transition inline-block">SOLIDWORKS – ITVTO</a>
                                 <img src="images/cert-thumb-solidworks.jpg" alt="SOLIDWORKS Certificate Preview" class="cert-hover-img">
                             </div>
                             <div class="cert-container relative inline-block">
-                                <a href="https://github.com/arazmehrabani/arazmehrabani.github.io/tree/main/certificates" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-sky-50 hover:text-sky-600 transition inline-block">CATIA V5 – Amirkabir University</a>
+                                <a href="https://github.com/arazmehrabani/arazmehrabani.github.io/tree/main/certificates" target="_blank" class="bg-white text-sm px-3 py-1 rounded-full shadow-sm hover:bg-amber-50 hover:text-amber-600 transition inline-block">CATIA V5 – Amirkabir University</a>
                                 <img src="images/cert-thumb-catia.jpg" alt="CATIA Certificate Preview" class="cert-hover-img">
                             </div>
                         </div>
@@ -310,7 +445,7 @@
             </div>
         </section>
 
-        <!-- Projects Section (bullet points) -->
+        <!-- Projects Section -->
         <section id="projects" class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
@@ -340,7 +475,7 @@
                         <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 card-hover">
                             <div class="flex items-center gap-2 mb-2">
                                 <i class="fas fa-robot text-2xl text-sky-600"></i>
-                                <a href="https://github.com/arazmehrabani/OpenFAST-DLC-Runner.py" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-gray-800 hover:text-sky-600 transition">OpenFAST Automation Framework</a>
+                                <a href="https://github.com/arazmehrabani/OpenFAST-DLC-Runner.py" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold text-gray-800 hover:text-amber-500 transition">OpenFAST Automation Framework</a>
                             </div>
                             <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600 mt-2">
                                 <li>Developed Python scripts to automate OpenFAST simulation workflows</li>
@@ -425,32 +560,65 @@
             </div>
         </section>
 
-        <!-- Research Section -->
+        <!-- Research Section — improved -->
         <section id="research" class="py-12 bg-gray-50">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
                 <div class="md:-ml-8">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-5">Research & publications</h2>
+                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 mb-2">Research & publications</h2>
+                    <p class="text-gray-500 mb-6">Academic work across two M.Sc. programmes</p>
                     <div class="grid md:grid-cols-2 gap-8">
-                        <div class="bg-white rounded-2xl p-6 border border-gray-100 transition hover:shadow-md">
+                        <!-- Wind Energy Research -->
+                        <div class="bg-white rounded-2xl p-6 border border-gray-100 research-card">
                             <div class="flex items-center gap-3 mb-4">
-                                <i class="fas fa-wind text-2xl text-sky-600"></i>
-                                <h3 class="text-xl font-semibold text-gray-800">Wind Energy Research (M.Sc.)</h3>
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(245,158,11,0.12);">
+                                    <i class="fas fa-wind text-xl" style="color: var(--amber);"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-800">Wind Energy Research</h3>
                             </div>
-                            <ul class="space-y-2 text-gray-700">
+                            <!-- Key stat -->
+                            <div class="flex gap-6 mb-4 pb-4 border-b border-gray-100">
+                                <div>
+                                    <div class="stat-number">20<span class="text-lg">MW</span></div>
+                                    <div class="stat-label">offshore turbine</div>
+                                </div>
+                                <div>
+                                    <div class="stat-number">80<span class="text-lg">%</span></div>
+                                    <div class="stat-label">workflow reduction</div>
+                                </div>
+                                <div>
+                                    <div class="stat-number">IEC</div>
+                                    <div class="stat-label">61400-1 DLCs</div>
+                                </div>
+                            </div>
+                            <ul class="space-y-2 text-gray-700 text-sm">
                                 <li>• 20 MW offshore turbine load analysis (IEC 61400‑1)</li>
                                 <li>• Python automation — 80% reduction in processing time</li>
                                 <li>• Wind farm yield, noise, shadow flicker & curtailment (WindPro, QGIS)</li>
                             </ul>
                         </div>
-                        <div class="bg-white rounded-2xl p-6 border border-gray-100 transition hover:shadow-md">
+                        <!-- Control Systems Research -->
+                        <div class="bg-white rounded-2xl p-6 border border-gray-100 research-card">
                             <div class="flex items-center gap-3 mb-4">
-                                <i class="fas fa-microscope text-2xl text-sky-600"></i>
-                                <h3 class="text-xl font-semibold text-gray-800">Control Systems Research (M.Sc.)</h3>
+                                <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(245,158,11,0.12);">
+                                    <i class="fas fa-microscope text-xl" style="color: var(--amber);"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold text-gray-800">Control Systems Research</h3>
                             </div>
-                            <ul class="space-y-2 text-gray-700">
-                                <li>• Developed control system for autonomous underwater welding robot</li>
-                                <li>• peer-reviewed publications (MATLAB/Simulink)</li>
-                                <li>• Available on <a href="https://scholar.google.com/citations?user=lojR5GEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline">Google Scholar</a></li>
+                            <!-- Key stat -->
+                            <div class="flex gap-6 mb-4 pb-4 border-b border-gray-100">
+                                <div>
+                                    <div class="stat-number">4</div>
+                                    <div class="stat-label">peer-reviewed papers</div>
+                                </div>
+                                <div>
+                                    <div class="stat-number">AUV</div>
+                                    <div class="stat-label">welding robot</div>
+                                </div>
+                            </div>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li>• Control system for autonomous underwater welding robot</li>
+                                <li>• MATLAB/Simulink — simulation to hardware</li>
+                                <li>• Available on <a href="https://scholar.google.com/citations?user=lojR5GEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="hover:underline" style="color: var(--amber);">Google Scholar</a></li>
                             </ul>
                         </div>
                     </div>
@@ -458,37 +626,69 @@
             </div>
         </section>
 
-        <!-- Footer (as section for active link detection) -->
-        <section id="contact" class="py-8 md:py-10 bg-slate-900 text-slate-200">
+        <!-- Footer / Contact — improved -->
+        <section id="contact" class="py-12 md:py-16 bg-slate-900 text-slate-200">
             <div class="max-w-7xl mx-auto px-6 md:px-8">
-                <div class="grid md:grid-cols-2 gap-10">
+                <div class="grid md:grid-cols-2 gap-10 md:gap-16">
+                    <!-- Contact info card -->
                     <div class="md:-ml-8">
-                        <h3 class="text-xl font-medium text-white mb-3">Contact info</h3>
-                        <ul class="space-y-2 text-slate-300">
-                            <li><i class="fas fa-map-marker-alt text-sky-400 w-5 mr-2"></i> Wedel, Germany</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-phone-alt text-green-500 w-5"></i><a href="tel:+4915754363238" class="hover:text-sky-300">+49 1575 436 3238</a></li>                    
-                            <li class="flex items-center gap-3"><i class="fas fa-envelope text-sky-400 w-5"></i><a href="mailto:araz.h.mehrabani@gmail.com" class="hover:text-sky-300">araz.h.mehrabani@gmail.com</a></li>
-                            <li class="flex gap-3">
-                                <a href="https://github.com/arazmehrabani" target="_blank" class="hover:text-sky-300"><i class="fab fa-github text-2xl"></i></a>
-                                <a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="hover:text-sky-300"><i class="fab fa-linkedin text-2xl"></i></a>
-                            </li>
-                        </ul>
+                        <h3 class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--amber);">Get in touch</h3>
+                        <div class="footer-card">
+                            <div class="footer-contact-item">
+                                <i class="fas fa-map-marker-alt w-4 text-center" style="color: var(--amber);"></i>
+                                <span>Wedel, Germany</span>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i class="fas fa-phone-alt w-4 text-center text-green-400"></i>
+                                <a href="tel:+4915754363238" class="transition">+49 1575 436 3238</a>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i class="fas fa-envelope w-4 text-center" style="color: var(--amber);"></i>
+                                <a href="mailto:araz.h.mehrabani@gmail.com" class="transition">araz.h.mehrabani@gmail.com</a>
+                            </div>
+                            <div class="flex gap-3 pt-4 mt-2">
+                                <a href="https://github.com/arazmehrabani" target="_blank" class="footer-social-btn">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="https://www.linkedin.com/in/araz-mehrabani-2467bab6/" target="_blank" class="footer-social-btn">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                                <a href="https://scholar.google.com/citations?user=lojR5GEAAAAJ&hl=en" target="_blank" class="footer-social-btn">
+                                    <i class="fas fa-graduation-cap"></i> Scholar
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="md:ml-16">
-                        <h3 class="text-2xl font-semibold text-white mb-3">Let’s connect</h3>
-                        <p class="text-slate-300 max-w-md">Currently finishing my M.Sc. in Wind Energy Engineering and open to working student positions, internships and thesis projects. Let's talk.</p>
+                    <!-- Let's connect -->
+                    <div>
+                        <h3 class="text-sm font-semibold uppercase tracking-widest mb-4" style="color: var(--amber);">Let's connect</h3>
+                        <div class="footer-card">
+                            <p class="text-slate-300 leading-relaxed mb-4">
+                                <span class="availability-dot"></span>
+                                Currently finishing my M.Sc. in Wind Energy Engineering and open to working student positions, internships and thesis projects. Let's talk.
+                            </p>
+                            <div class="flex flex-wrap">
+                                <span class="footer-tag">Load Analysis</span>
+                                <span class="footer-tag">Wind Farm Planning</span>
+                                <span class="footer-tag">Aeroelastic Simulation</span>
+                                <span class="footer-tag">Python Automation</span>
+                                <span class="footer-tag">Thesis Projects</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="border-t border-slate-700 mt-6 pt-4 text-center text-slate-400 text-sm">© 2026 Araz Hamayeli Mehrabani – Built by me, for you to explore.</div>
+                <div class="border-t border-slate-700 mt-10 pt-5 text-center text-slate-500 text-sm">
+                    © 2026 Araz Hamayeli Mehrabani — Built by me, for you to explore.
+                </div>
             </div>
         </section>
     </main>
 
-    <a href="#" class="fixed bottom-6 right-6 bg-sky-600 text-white p-3 rounded-full shadow-lg hover:bg-sky-700 transition opacity-70 hover:opacity-100">
+    <a href="#" class="fixed bottom-6 right-6 text-white p-3 rounded-full shadow-lg transition opacity-70 hover:opacity-100" style="background: var(--amber);">
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Lightbox (unchanged) -->
+    <!-- Lightbox -->
     <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center">
         <span class="gallery-arrow prev" onclick="navigateGallery(-1); event.stopPropagation();">&#10094;</span>
         <img id="lightbox-img" class="max-w-[80%] max-h-[80%] object-contain" onclick="event.stopPropagation();">
@@ -497,17 +697,13 @@
     </div>
 
     <script>
-        // Active section highlighting for navigation
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
 
         function updateActiveLink() {
             let current = '';
             const scrollPosition = window.scrollY + 100;
-            const scrollHeight = document.documentElement.scrollHeight;
-            const windowHeight = window.innerHeight;
-            const isAtBottom = window.scrollY + windowHeight >= scrollHeight - 50;
-
+            const isAtBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 50;
             if (isAtBottom) {
                 current = 'contact';
             } else {
@@ -519,20 +715,16 @@
                     }
                 });
             }
-
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                const href = link.getAttribute('href').substring(1);
-                if (href === current) {
+                if (link.getAttribute('href').substring(1) === current) {
                     link.classList.add('active');
                 }
             });
         }
-
         window.addEventListener('scroll', updateActiveLink);
         window.addEventListener('load', updateActiveLink);
 
-        // Gallery lightbox code
         let galleries = {};
         let currentGalleryId = null;
         let currentIndex = 0;
@@ -541,7 +733,6 @@
             const id = gallery.getAttribute('data-gallery-id');
             const images = Array.from(gallery.querySelectorAll('.gallery-thumb')).map(img => img.getAttribute('data-img-src'));
             galleries[id] = images;
-
             gallery.querySelectorAll('.gallery-thumb').forEach((thumb, idx) => {
                 thumb.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -554,13 +745,11 @@
 
         function openLightbox(src) {
             const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
+            document.getElementById('lightbox-img').src = src;
             lightbox.classList.remove('hidden');
             lightbox.classList.add('flex');
             document.body.style.overflow = 'hidden';
         }
-
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.add('hidden');
@@ -569,7 +758,6 @@
             currentGalleryId = null;
             document.body.style.overflow = '';
         }
-
         function navigateGallery(direction) {
             if (!currentGalleryId || !galleries[currentGalleryId]) return;
             const images = galleries[currentGalleryId];
@@ -579,22 +767,14 @@
             currentIndex = newIndex;
             document.getElementById('lightbox-img').src = images[currentIndex];
         }
-
         document.getElementById('lightbox').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeLightbox();
-            }
+            if (e.target === this) closeLightbox();
         });
-
         document.addEventListener('keydown', (e) => {
             if (!document.getElementById('lightbox').classList.contains('flex')) return;
-            if (e.key === 'Escape') {
-                closeLightbox();
-            } else if (e.key === 'ArrowLeft') {
-                navigateGallery(-1);
-            } else if (e.key === 'ArrowRight') {
-                navigateGallery(1);
-            }
+            if (e.key === 'Escape') closeLightbox();
+            else if (e.key === 'ArrowLeft') navigateGallery(-1);
+            else if (e.key === 'ArrowRight') navigateGallery(1);
         });
     </script>
 </body>

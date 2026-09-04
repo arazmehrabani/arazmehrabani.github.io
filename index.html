@@ -90,6 +90,7 @@ html{scroll-padding-top:88px}body{font-family:'Inter',sans-serif;scroll-behavior
     ?profile=cae
     ?profile=robotics
     ?profile=linkedin
+    root / (no profile parameter) = same master portfolio as ?profile=linkedin
   Add &lang=en for English.
 */
 const driveUrl='https://drive.google.com/drive/u/0/folders/1vYzrplMVnMUfKEDrJeQfGl-sxfGuLZjE';
@@ -284,9 +285,9 @@ window.navigateGallery=navigateGallery;window.closeLightbox=closeLightbox;
 
 function setLanguageUrl(lang){const u=new URL(location.href);if(lang==='en')u.searchParams.set('lang','en');else u.searchParams.delete('lang');history.replaceState({},'',u.pathname+u.search+u.hash);render()}
 function render(){
- const params=new URLSearchParams(location.search);const lang=params.get('lang')==='en'?'en':'de';let key=params.get('profile')||'';if(key==='mechanical-design')key='mechanical';const profile=profiles[key];const d=profile?profile[lang]:landing[lang];const sh=shared[lang];document.documentElement.lang=lang;
- document.title=d.metaTitle;q('meta[name="description"]').setAttribute('content',d.metaDescription);q('meta[property="og:title"]').setAttribute('content',d.metaTitle);q('meta[property="og:description"]').setAttribute('content',d.metaDescription);q('meta[property="og:locale"]').setAttribute('content',lang==='de'?'de_DE':'en_GB');const canonical='https://arazmehrabani.github.io/'+(key?`?profile=${encodeURIComponent(key)}${lang==='en'?'&lang=en':''}`:(lang==='en'?'?lang=en':''));q('#canonical-link').href=canonical;q('meta[property="og:url"]').content=canonical;
- q('#hero').style.backgroundImage=`url('${profile?profile.heroBg:'images/hero-bg.jpg'}')`;q('#hero-kicker').textContent=d.kicker;q('#hero-title1').textContent=d.title1;q('#hero-title2').textContent=d.title2;q('#hero-summary').textContent=d.summary;q('#identity-role').textContent=d.role;q('#identity-degree').textContent=sh.identity.degree;q('#identity-location').textContent=sh.identity.location;q('#identity-languages').textContent=sh.identity.languages;q('#cv-label').textContent=sh.buttons.cv;q('#drive-label').textContent=sh.buttons.drive;
+ const params=new URLSearchParams(location.search);const lang=params.get('lang')==='en'?'en':'de';const requestedProfile=params.get('profile');let key=requestedProfile||'linkedin';if(key==='mechanical-design')key='mechanical';if(!profiles[key])key='linkedin';const profile=profiles[key];const d=profile[lang];const sh=shared[lang];document.documentElement.lang=lang;
+ document.title=d.metaTitle;q('meta[name="description"]').setAttribute('content',d.metaDescription);q('meta[property="og:title"]').setAttribute('content',d.metaTitle);q('meta[property="og:description"]').setAttribute('content',d.metaDescription);q('meta[property="og:locale"]').setAttribute('content',lang==='de'?'de_DE':'en_GB');const isMaster=key==='linkedin';const canonical='https://arazmehrabani.github.io/'+(isMaster?(lang==='en'?'?lang=en':''):`?profile=${encodeURIComponent(key)}${lang==='en'?'&lang=en':''}`);q('#canonical-link').href=canonical;q('meta[property="og:url"]').content=canonical;
+ q('#hero').style.backgroundImage=`url('${profile.heroBg}')`;q('#hero-kicker').textContent=d.kicker;q('#hero-title1').textContent=d.title1;q('#hero-title2').textContent=d.title2;q('#hero-summary').textContent=d.summary;q('#identity-role').textContent=d.role;q('#identity-degree').textContent=sh.identity.degree;q('#identity-location').textContent=sh.identity.location;q('#identity-languages').textContent=sh.identity.languages;q('#cv-label').textContent=sh.buttons.cv;q('#drive-label').textContent=sh.buttons.drive;
  const hasCv=!!(profile&&profile.cv&&profile.cv[lang]);q('#cv-link').href=hasCv?profile.cv[lang]:'#';q('#cv-link').classList.toggle('hidden-section',!hasCv);q('#hero-actions').classList.toggle('hidden-section',!profile);
  document.querySelectorAll('.language-button').forEach(b=>{const active=b.dataset.language===lang;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
  document.querySelectorAll('[data-nav]').forEach(a=>{a.textContent=sh.nav[a.dataset.nav]||a.textContent});
